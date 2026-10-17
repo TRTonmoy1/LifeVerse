@@ -1,17 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowLeft, Palette, Sparkles } from "lucide-react";
 import Room2D, { type RoomZone } from "./components/room/Room2D";
-import type { CharacterStyle } from "./components/room/Character";
-import CharacterCustomizer from "./features/character/CharacterCustomizer";
+import { AvatarStudio } from "./components/room/AvatarStudio";
+import { useAvatar } from "./components/room/avatarState";
 import "./App.css";
-
-const defaultCharacter: CharacterStyle = {
-  skin: "#f1c7a3",
-  shirt: "#8b5cf6",
-  hair: "#211715",
-};
 
 const zoneNames: Record<RoomZone, string> = {
   desk: "Productivity Zone",
@@ -20,43 +13,12 @@ const zoneNames: Record<RoomZone, string> = {
   trophies: "Achievements",
 };
 
-function loadCharacter(): CharacterStyle {
-  try {
-    const saved = localStorage.getItem("lifeverse-character");
-    if (saved) {
-      const parsed: unknown = JSON.parse(saved);
-      if (
-        typeof parsed === "object" &&
-        parsed !== null &&
-        "skin" in parsed &&
-        "shirt" in parsed &&
-        "hair" in parsed &&
-        typeof parsed.skin === "string" &&
-        typeof parsed.shirt === "string" &&
-        typeof parsed.hair === "string"
-      ) {
-        return {
-          skin: parsed.skin,
-          shirt: parsed.shirt,
-          hair: parsed.hair,
-        };
-      }
-    }
-  } catch {
-    // Use defaults if saved data is unavailable.
-  }
-  return defaultCharacter;
-}
-
 export default function App() {
-  const [character, setCharacter] = useState(loadCharacter);
+  const [avatar, setAvatar] = useAvatar();
   const [activeZone, setActiveZone] = useState<RoomZone | null>(null);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showCustomizer, setShowCustomizer] = useState(false);
 
-  useEffect(() => {
-    localStorage.setItem("lifeverse-character", JSON.stringify(character));
-  }, [character]);
 
   useEffect(() => {
     if (!activeZone) return;
@@ -93,7 +55,7 @@ export default function App() {
 
       <section className="room-container">
         <Room2D
-          character={character}
+          avatar={avatar}
           activeZone={activeZone}
           onSelectZone={(zone) => {
             if (activeZone) return;
@@ -140,37 +102,13 @@ export default function App() {
         Hover over an object and click it to explore your universe.
       </p>
 
-      <AnimatePresence>
-        {showCustomizer && (
-          <motion.div
-            className="customizer-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowCustomizer(false)}
-          >
-            <motion.div
-              className="customizer-panel"
-              initial={{ x: 80, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 80, opacity: 0 }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                className="back-button"
-                onClick={() => setShowCustomizer(false)}
-              >
-                Close
-              </button>
-
-              <CharacterCustomizer
-                character={character}
-                onChange={setCharacter}
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showCustomizer && (
+        <AvatarStudio
+          settings={avatar}
+          onChange={setAvatar}
+          onClose={() => setShowCustomizer(false)}
+        />
+      )}
     </main>
   );
 }

@@ -1,0 +1,20 @@
+.lv-studio-backdrop { position:fixed;inset:0;z-index:9999;background:rgba(8,8,20,.83);backdrop-filter:blur(9px);display:flex;align-items:center;justify-content:center;padding:16px;color:#f7f2ff; }
+.lv-studio { width:min(900px,100%);max-height:min(90vh,850px);display:flex;flex-direction:column;background:linear-gradient(135deg,#29223f,#151527);border:1px solid #746297;border-radius:22px;box-shadow:0 25px 90px #000a;overflow:hidden;font-family:inherit; }
+.lv-studio button { cursor:pointer;color:inherit;font:inherit; }
+.lv-studio-head,.lv-studio-footer { display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 24px; }
+.lv-studio-head { border-bottom:1px solid #ffffff18; }.lv-studio-head h2 { margin:0;font-size:24px; }.lv-studio-head p,.lv-studio-footer span { margin:4px 0 0;color:#b4a9ce;font-size:13px; }
+.lv-studio-head>button { background:#ffffff12;border:1px solid #ffffff30;border-radius:9px;padding:8px 12px; }
+.lv-studio-body { display:grid;grid-template-columns:minmax(180px, 1fr) minmax(260px,1.3fr);gap:18px;min-height:0;overflow:auto;padding:20px; }
+.lv-studio-preview { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-radius:18px;background:radial-gradient(ellipse at 50% 75%,#604f93,#25213d 60%,#1a1830);min-height:370px;padding:16px; }
+.lv-studio-preview svg,.lv-studio-preview img { width:min(100%,210px);max-height:330px;object-fit:contain;filter:drop-shadow(0 12px 16px #0008); }
+.lv-studio-preview span { font-size:12px;color:#d0c1f2; }
+.lv-studio-controls { overflow:auto;padding:0 4px 10px; }.lv-studio-controls label { display:block;font-weight:700;font-size:13px;margin:17px 0 9px;text-transform:capitalize; }
+.lv-studio-options,.lv-studio-swatches { display:flex;flex-wrap:wrap;gap:8px; }
+.lv-studio-options button { background:#342d4d;border:1px solid #615478;border-radius:9px;padding:8px 11px;text-transform:capitalize;font-size:13px; }
+.lv-studio-options button.selected { border-color:#c6a8ff;background:#60438b; }
+.lv-studio-swatches button { width:31px;height:31px;border-radius:50%;border:2px solid #ffffff4a;background:var(--swatch); }
+.lv-studio-swatches button.selected { outline:2px solid #e5d2ff;outline-offset:2px; }
+.lv-studio-note { color:#e6c8a4;font-size:12px;line-height:1.5; }.lv-studio-disabled { opacity:.38;pointer-events:none; }
+.lv-studio-reset { margin-top:22px;background:transparent;border:1px solid #8673a1;border-radius:9px;padding:9px 13px; }
+.lv-studio-footer { border-top:1px solid #ffffff18; }.lv-studio-footer button { background:#8052d6;border:0;border-radius:10px;padding:11px 22px;font-weight:700; }
+@media(max-width:620px) { .lv-studio-body { grid-template-columns:1fr; }.lv-studio-preview { min-height:210px; }.lv-studio-preview svg,.lv-studio-preview img { max-height:180px; }.lv-studio-head,.lv-studio-footer { padding:12px 16px; } }
