@@ -1,9 +1,8 @@
+import { motion, useReducedMotion } from 'motion/react';
+import type { CharacterStyle } from './Character';
+import './Room2D.css';
 
-import { motion } from "motion/react";
-import { Monitor, Dumbbell, Globe2, Trophy } from "lucide-react";
-import Character, { type CharacterStyle } from "./Character";
-
-export type RoomZone = "desk" | "fitness" | "globe" | "trophies";
+export type RoomZone = 'desk' | 'fitness' | 'globe' | 'trophies';
 
 type Props = {
   character: CharacterStyle;
@@ -11,64 +10,43 @@ type Props = {
   onSelectZone: (zone: RoomZone) => void;
 };
 
-const objects = [
-  { id: "desk", label: "Productivity", Icon: Monitor, x: 24, y: 44 },
-  { id: "fitness", label: "Fitness", Icon: Dumbbell, x: 77, y: 70 },
-  { id: "globe", label: "Explore", Icon: Globe2, x: 75, y: 28 },
-  { id: "trophies", label: "Achievements", Icon: Trophy, x: 25, y: 19 },
-] as const;
+// Coordinates are percentages of the full 16:9 room artwork.
+// Keep interaction locations separate from the background asset.
+const hotspots: { id: RoomZone; label: string; x: number; y: number; width: number; height: number }[] = [
+  { id: 'desk', label: 'Open productivity', x: 17, y: 43, width: 29, height: 37 },
+  { id: 'trophies', label: 'Open achievements', x: 82, y: 20, width: 23, height: 22 },
+  { id: 'globe', label: 'Explore the world', x: 76, y: 39, width: 15, height: 23 },
+  { id: 'fitness', label: 'Open fitness', x: 79, y: 73, width: 28, height: 28 },
+];
 
-export default function Room2D({
-  character,
-  activeZone,
-  onSelectZone,
-}: Props) {
-  const focused = objects.find((item) => item.id === activeZone);
-
+export default function Room2D({ character: _character, activeZone, onSelectZone }: Props) {
+  const reduceMotion = useReducedMotion();
+  const selected = hotspots.find(h => h.id === activeZone);
+  const zoom = 1.9;
+  // Center the selected object using normalized room coordinates.
+  const panX = selected ? `${(50 - selected.x) * zoom}%` : '0%';
+  const panY = selected ? `${(50 - selected.y) * zoom}%` : '0%';
   return (
-    <div className="room-viewport">
+    <div className="lv-room-viewport" aria-label="Interactive LifeVerse room">
       <motion.div
-        className="room-scene"
-        animate={
-          focused
-            ? {
-                scale: 2.1,
-                x: `${(50 - focused.x) * 1.2}%`,
-                y: `${(50 - focused.y) * 1.2}%`,
-              }
-            : { scale: 1, x: "0%", y: "0%" }
-        }
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        className="lv-room-scene"
+        style={{ transformOrigin: '50% 50%' }}
+        animate={{ scale: selected && !reduceMotion ? zoom : 1, x: selected && !reduceMotion ? panX : "0%", y: selected && !reduceMotion ? panY : "0%" }}
+        transition={{ duration: reduceMotion ? 0 : 0.72, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="room-back-wall" />
-        <div className="room-floor" />
-        <div className="room-window">
-          <div className="room-moon" />
-        </div>
-        <div className="room-rug" />
-
-        <motion.div
-          className="room-character"
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Character style={character} />
-        </motion.div>
-
-        {objects.map(({ id, label, Icon, x, y }) => (
-          <motion.button
-            key={id}
+        <img src="/images/lifeverse-room-temp.png" alt="Cozy illustrated LifeVerse room" className="lv-room-art" draggable={false} />
+        {hotspots.map(h => (
+          <button
             type="button"
-            className={`room-object room-object-${id}`}
-            style={{ left: `${x}%`, top: `${y}%` }}
-            whileHover={{ scale: 1.12, y: -7 }}
-            whileTap={{ scale: 0.96 }}
-            onClick={() => onSelectZone(id)}
-            aria-label={`Open ${label}`}
+            key={h.id}
+            className="lv-room-hotspot"
+            aria-label={h.label}
+            disabled={activeZone !== null}
+            style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.width}%`, height: `${h.height}%` }}
+            onClick={() => onSelectZone(h.id)}
           >
-            <Icon size={36} strokeWidth={1.7} />
-            <span className="room-object-label">{label}</span>
-          </motion.button>
+            <span className="lv-room-tooltip">{h.label}</span>
+          </button>
         ))}
       </motion.div>
     </div>
