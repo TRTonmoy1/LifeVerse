@@ -1,0 +1,1899 @@
+/* LifeVerse hubs: isolated styles that do not alter the illustrated room or Avatar Studio. */
+.lv-dashboard-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(7, 7, 18, 0.83);
+  backdrop-filter: blur(14px);
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2vw, 28px);
+}
+.lv-dashboard-window {
+  height: min(92vh, 930px);
+  width: min(100%, 1420px);
+  min-height: 0;
+  background: #121429;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #514b71;
+  border-radius: 22px;
+  box-shadow:
+    0 30px 110px #000d,
+    0 0 80px #644b9e21;
+  position: relative;
+}
+.lv-dashboard-window:before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 130px;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 13% 0, #6c50a020, transparent 50%);
+  z-index: 0;
+}
+.lv-dashboard-bar {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #393951;
+  padding: 15px clamp(18px, 2.8vw, 36px);
+  min-height: 89px;
+  background: #1a1a32c9;
+  flex-shrink: 0;
+}
+.lv-dashboard-identity,
+.lv-dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.lv-dashboard-identity h2 {
+  font-size: 18px;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+.lv-dashboard-identity h2 span {
+  font-size: 9px;
+  color: #b9a0ef;
+  vertical-align: middle;
+  letter-spacing: 2.3px;
+  margin-left: 5px;
+}
+.lv-dashboard-identity p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: #9895b7;
+}
+.lv-hub-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #6952a6, #34234f);
+  color: #e0cfff;
+  display: grid;
+  place-items: center;
+}
+.lv-hub-icon.fitness {
+  background: linear-gradient(135deg, #257f82, #204957);
+  color: #a8ffef;
+}
+.lv-hub-icon.globe {
+  background: linear-gradient(135deg, #3764a2, #324276);
+}
+.lv-hub-icon.trophies {
+  background: linear-gradient(135deg, #9e7043, #5d3651);
+}
+.lv-hub-icon.study {
+  background: linear-gradient(135deg, #5d59b3, #2d4b67);
+  color: #f7ecff;
+}
+.lv-hub-xp {
+  font-size: 12px;
+  color: #ceb6ff;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+}
+.lv-hub-xp span {
+  color: #958fae;
+  font-weight: 500;
+}
+.lv-back-button,
+.lv-close-button {
+  border: 1px solid #4b4569;
+  border-radius: 10px;
+  background: #302b48;
+  color: #eee6ff;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 750;
+}
+.lv-back-button:hover,
+.lv-close-button:hover {
+  background: #4e3b74;
+}
+.lv-close-button {
+  display: none;
+  padding: 10px;
+}
+.lv-dashboard-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #63527c transparent;
+  z-index: 1;
+}
+.lv-dashboard-content {
+  padding: 18px clamp(18px, 3.2vw, 34px) 0;
+}
+.lv-dashboard-hero {
+  position: relative;
+  max-width: 1330px;
+  margin: 0 auto 6px;
+  min-height: 190px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #4d4568;
+  box-shadow: 0 24px 60px #0007;
+  background: #17192d;
+}
+.lv-dashboard-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  max-height: 250px;
+  object-fit: cover;
+}
+.lv-dashboard-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 10, 24, 0.82) 0%,
+      rgba(11, 12, 26, 0.44) 46%,
+      rgba(11, 12, 26, 0.12) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.28));
+  pointer-events: none;
+}
+.lv-dashboard-hero-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  width: min(620px, 78%);
+  padding: 24px clamp(20px, 3vw, 34px) 24px;
+}
+.lv-dashboard-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(20, 20, 42, 0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(199, 170, 255, 0.35);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #e8d8ff;
+}
+.lv-dashboard-hero h3 {
+  margin: 0;
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  color: #fff;
+}
+.lv-dashboard-hero p {
+  margin: 0;
+  color: #d7d2ea;
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 56ch;
+}
+.lv-hub-body {
+  padding: 22px clamp(18px, 3.2vw, 46px) 18px;
+  max-width: 1330px;
+  margin: 0 auto;
+}
+.lv-dashboard-bottom {
+  border-top: 1px solid #302f4a;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px clamp(18px, 2.8vw, 36px);
+  font-size: 10px;
+  color: #8885a7;
+  background: #14142b;
+}
+.lv-dashboard-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lv-tabs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #1d1d35;
+  padding: 5px;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #32334c;
+  margin-bottom: 24px;
+}
+.lv-tabs button {
+  background: transparent;
+  border: 0;
+  color: #a6a0bd;
+  border-radius: 9px;
+  padding: 10px 17px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+.lv-tabs button:hover {
+  color: #fff;
+}
+.lv-tabs button.active {
+  color: #f9f5ff;
+  background: #4b3c70;
+  box-shadow: 0 3px 12px #0b092454;
+}
+.fitness-hub .lv-tabs button.active {
+  background: #235e62;
+  color: #d9fff8;
+}
+.lv-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+.lv-eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #b49bff;
+}
+.fitness-hub .lv-eyebrow {
+  color: #7de2d3;
+}
+.lv-section-heading h2 {
+  font-size: clamp(24px, 3vw, 38px);
+  letter-spacing: -1.2px;
+  line-height: 1.14;
+  margin: 8px 0;
+}
+.lv-section-heading p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #aaa7c5;
+  margin: 0;
+}
+.lv-date-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #bfb1db;
+  font-size: 12px;
+  border: 1px solid #48405e;
+  background: #25203c;
+  padding: 11px 15px;
+  border-radius: 11px;
+  white-space: nowrap;
+}
+.lv-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.lv-stat {
+  border: 1px solid #3b3557;
+  border-radius: 16px;
+  background: linear-gradient(130deg, #26223e, #1d1c34);
+  padding: 18px 19px;
+  min-height: 156px;
+  display: flex;
+  flex-direction: column;
+}
+.lv-stat-icon {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  margin-bottom: 11px;
+  background: #9d84fd24;
+  color: #c0acff;
+}
+.lv-stat-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.lv-tone-mint .lv-stat-icon {
+  background: #6becc920;
+  color: #89ead3;
+}
+.lv-tone-orange .lv-stat-icon {
+  background: #ffc08c20;
+  color: #ffc08c;
+}
+.lv-tone-pink .lv-stat-icon {
+  background: #f299c720;
+  color: #f29fcd;
+}
+.lv-stat-label {
+  color: #a59dba;
+  font-size: 11px;
+}
+.lv-stat strong {
+  font-size: 29px;
+  letter-spacing: -1px;
+  margin: 4px 0;
+}
+.lv-stat-detail {
+  font-size: 10px;
+  color: #8583a4;
+}
+.lv-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: 18px;
+}
+.lv-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.lv-panel,
+.lv-chart-card {
+  background: linear-gradient(145deg, #211f37, #1a1b31);
+  border: 1px solid #3b3754;
+  border-radius: 17px;
+  padding: 20px;
+  min-width: 0;
+}
+.lv-panel h3,
+.lv-chart-card h3 {
+  font-size: 15px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+.lv-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+.lv-panel-top h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.lv-muted-small,
+.lv-chart-head span {
+  font-size: 11px;
+  color: #8987a5;
+}
+.lv-text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  padding: 3px 0;
+  color: #beabff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.fitness-hub .lv-text-action {
+  color: #89e6d5;
+}
+.lv-text-action:hover {
+  text-decoration: underline;
+}
+.lv-mission {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff05;
+  color: #c4bed7;
+  border: 1px solid #ffffff0b;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.2s;
+}
+.lv-mission:hover {
+  background: #ffffff0c;
+  border-color: #8b76b46b;
+}
+.lv-mission > svg {
+  color: #a991e8;
+  flex-shrink: 0;
+}
+.lv-mission span {
+  flex: 1;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.lv-mission em {
+  font-style: normal;
+  color: #a69bc2;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.lv-soft {
+  font-size: 12px;
+  color: #9893b0;
+  line-height: 1.6;
+}
+.lv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.lv-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+.lv-btn-primary {
+  background: linear-gradient(135deg, #896be2, #694cb7);
+  border-color: #a089e8;
+  box-shadow: 0 5px 15px #35245e60;
+}
+.fitness-hub .lv-btn-primary {
+  background: linear-gradient(135deg, #2f9997, #207277);
+  border-color: #47baba;
+  box-shadow: 0 5px 15px #0d3b3a55;
+}
+.lv-btn-secondary {
+  background: #302b47;
+  border-color: #504466;
+  color: #ddd2fa;
+}
+.lv-wide {
+  width: 100%;
+  margin-top: 12px;
+}
+.lv-btn:disabled {
+  opacity: 0.5;
+}
+.lv-chart-card {
+  padding: 22px;
+}
+.lv-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.lv-chart {
+  height: 170px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: 13px;
+  margin-top: 23px;
+}
+.lv-chart-day {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  min-width: 0;
+}
+.lv-chart-track {
+  height: 100%;
+  width: 100%;
+  max-width: 39px;
+  display: flex;
+  align-items: flex-end;
+  background: #38325370;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.lv-chart-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #b19aff, #674bbb);
+  border-radius: 9px 9px 5px 5px;
+  min-height: 4px;
+  transition: height 0.4s;
+}
+.fitness-hub .lv-chart-fill {
+  background: linear-gradient(180deg, #83e6d3, #2c8e87);
+}
+.lv-chart-day > span {
+  font-size: 10px;
+  color: #8f8baa;
+}
+.lv-quote {
+  position: relative;
+  overflow: hidden;
+  min-height: 170px;
+  background:
+    radial-gradient(circle at 92% 100%, #7454ad55, transparent 45%),
+    linear-gradient(140deg, #34274f, #1b1d33);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lv-quote h3 {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  margin: 10px 0;
+}
+.lv-quote p {
+  font-size: 12px;
+  color: #b3abc9;
+  line-height: 1.6;
+  max-width: 350px;
+  margin: 0;
+}
+.lv-quote-spark {
+  position: absolute;
+  right: 21px;
+  top: 20px;
+  font-size: 30px;
+  color: #d4afff88;
+}
+.fitness-quote {
+  background:
+    radial-gradient(circle at 92% 100%, #2f989055, transparent 45%),
+    linear-gradient(145deg, #234347, #192c35);
+}
+.lv-add-form {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+  background: #201e36;
+  border: 1px solid #3d3657;
+  border-radius: 15px;
+  padding: 18px;
+  margin: 0 0 20px;
+}
+.lv-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+  min-width: 130px;
+}
+.lv-field.lv-flex2 {
+  flex: 2;
+  min-width: 200px;
+}
+.lv-field.lv-small-field {
+  min-width: 95px;
+  flex: 0.5;
+}
+.lv-field label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #aaa6c5;
+}
+.lv-field input,
+.lv-field select,
+.lv-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #504867;
+  background: #17172c;
+  padding: 11px 12px;
+  color: #f3efff;
+  border-radius: 9px;
+  outline: 0;
+  font-size: 12px;
+  min-height: 41px;
+  color-scheme: dark;
+}
+.lv-field textarea {
+  resize: vertical;
+}
+.lv-field input:focus,
+.lv-field select:focus,
+.lv-field textarea:focus {
+  border-color: #aa8cff;
+  box-shadow: 0 0 0 3px #9a75e52a;
+}
+.fitness-hub .lv-field input:focus,
+.fitness-hub .lv-field select:focus,
+.fitness-hub .lv-field textarea:focus {
+  border-color: #70d8d0;
+  box-shadow: 0 0 0 3px #48c3ae24;
+}
+.lv-field input::placeholder,
+.lv-field textarea::placeholder {
+  color: #787493;
+}
+.lv-add-form > .lv-btn {
+  height: 41px;
+}
+.lv-chip-row {
+  display: flex;
+  gap: 5px;
+}
+.lv-chip {
+  border: 1px solid transparent;
+  background: #2b2844;
+  color: #aba4c0;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.lv-chip.active {
+  border-color: #836bb8;
+  background: #493962;
+  color: #f9f0ff;
+}
+.lv-count {
+  display: inline-block;
+  font-size: 10px;
+  color: #a69ad0;
+  background: #403651;
+  padding: 4px 8px;
+  border-radius: 7px;
+  margin-left: 5px;
+}
+.lv-task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #ffffff0b;
+  padding: 13px 2px;
+}
+.lv-task-toggle {
+  border: 0;
+  background: transparent;
+  color: #aa94dc;
+  padding: 2px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.lv-task-done .lv-task-toggle {
+  color: #86dfbf;
+}
+.lv-task-main {
+  flex: 1;
+  min-width: 0;
+}
+.lv-task-main strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.lv-task-done .lv-task-main strong {
+  text-decoration: line-through;
+  color: #77748e;
+}
+.lv-task-meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #8985a2;
+}
+.lv-task-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.lv-priority {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.lv-priority.high {
+  color: #ffaaa8;
+  background: #a2474b30;
+}
+.lv-priority.medium {
+  color: #ffca90;
+  background: #a3713630;
+}
+.lv-priority.low {
+  color: #8ee0c8;
+  background: #2a886b30;
+}
+.lv-overdue {
+  color: #ff9c9c !important;
+}
+.lv-xp-tag {
+  font-size: 10px;
+  color: #bca2ed;
+  white-space: nowrap;
+}
+.lv-icon-btn {
+  border: 0;
+  background: transparent;
+  color: #8984a4;
+  padding: 6px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.lv-icon-btn:hover {
+  background: #8a414933;
+  color: #ffa1a1;
+}
+.lv-empty {
+  padding: 32px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.lv-empty-orb {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: #6a4d9435;
+  color: #bba4ef;
+  margin-bottom: 12px;
+}
+.lv-empty h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+.lv-empty p {
+  font-size: 12px;
+  color: #9691af;
+  max-width: 300px;
+  line-height: 1.6;
+}
+.lv-empty .lv-btn {
+  margin-top: 10px;
+}
+.lv-habit-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #594d70 transparent;
+}
+.lv-habit-header,
+.lv-habit-row {
+  display: grid;
+  grid-template-columns: minmax(145px, 1fr) repeat(7, minmax(29px, 42px)) 42px 27px;
+  align-items: center;
+  gap: 7px;
+  min-width: 510px;
+}
+.lv-habit-header {
+  font-size: 9px;
+  color: #85809f;
+  text-align: center;
+  padding-bottom: 14px;
+}
+.lv-habit-header span:first-child {
+  text-align: left;
+}
+.lv-habit-row {
+  border-top: 1px solid #ffffff0d;
+  padding: 12px 0;
+}
+.lv-habit-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.lv-habit-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.lv-habit-check {
+  height: 31px;
+  width: 31px;
+  border: 1px solid #51495e;
+  border-radius: 9px;
+  color: #172427;
+  background: #29283e;
+  display: grid;
+  place-items: center;
+  margin: auto;
+}
+.lv-habit-check.checked {
+  background: var(--habit-color);
+  border-color: var(--habit-color);
+}
+.lv-habit-check:disabled {
+  opacity: 0.18;
+  cursor: default;
+}
+.lv-habit-streak {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: #ffc08c;
+  font-weight: 800;
+  justify-content: center;
+}
+.lv-info-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #908daa;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+.lv-goals-grid,
+.lv-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.lv-grid-all {
+  grid-column: 1/-1;
+}
+.lv-goal-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #6e58a13d;
+  color: #b7a2ec;
+}
+.lv-goal h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  min-height: 45px;
+  overflow-wrap: anywhere;
+}
+.lv-goal-numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  margin: 15px 0 11px;
+}
+.lv-goal-numbers strong {
+  font-size: 21px;
+}
+.lv-goal-numbers strong span {
+  font-size: 11px;
+  color: #8e8da9;
+  font-weight: 500;
+}
+.lv-goal-numbers em {
+  font-size: 13px;
+  font-style: normal;
+  color: #c1a1ee;
+  font-weight: 900;
+}
+.lv-progress-track {
+  height: 7px;
+  border-radius: 999px;
+  background: #373249;
+  overflow: hidden;
+}
+.lv-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #7655c8, #c2a6ff);
+  border-radius: 999px;
+  transition: width 0.35s;
+}
+.lv-goal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  margin-top: 16px;
+}
+.lv-goal-actions > span {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #a7a1bc;
+}
+.lv-goal-actions > div {
+  display: flex;
+  gap: 6px;
+}
+.lv-goal-actions button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #393252;
+  border: 1px solid #5b5079;
+  color: #e6d7ff;
+}
+.lv-goal-actions button:hover:not(:disabled) {
+  background: #55406f;
+}
+.lv-goal-actions button:disabled {
+  opacity: 0.35;
+}
+.lv-last-workout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+}
+.lv-last-workout-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #2a736837;
+  color: #7de4d1;
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+}
+.lv-last-workout > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.lv-last-workout h4 {
+  font-size: 13px;
+  margin: 0 0 5px;
+  line-height: 1.5;
+}
+.lv-last-workout p {
+  font-size: 11px;
+  color: #8f8da9;
+  margin: 0;
+}
+.lv-overview-skill {
+  margin: 15px 0;
+}
+.lv-overview-skill > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+.lv-overview-skill > div:first-child span {
+  color: #8f8aa5;
+  font-size: 10px;
+}
+.lv-overview-skill .lv-progress-track {
+  height: 6px;
+}
+.lv-log-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+}
+.lv-workout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+.lv-radio-switch {
+  display: flex;
+  background: #17182d;
+  border-radius: 10px;
+  padding: 4px;
+  border: 1px solid #33374f;
+}
+.lv-radio-switch button {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  color: #8e8ca8;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.lv-radio-switch button.active {
+  background: #256f72;
+  color: #d5fff5;
+}
+.lv-input-row {
+  display: flex;
+  gap: 12px;
+}
+.lv-input-row .lv-field {
+  min-width: 0;
+}
+.lv-session-panel > .lv-field {
+  margin: 14px 0;
+}
+.lv-draft-empty {
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #44515e;
+  border-radius: 13px;
+  color: #648f8c;
+  margin-top: 14px;
+  padding: 16px;
+  text-align: center;
+}
+.lv-draft-empty p {
+  color: #8c95aa;
+  font-size: 12px;
+  max-width: 245px;
+}
+.lv-draft-list {
+  margin-top: 14px;
+  max-height: 245px;
+  overflow-y: auto;
+}
+.lv-draft-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #ffffff12;
+  padding: 12px 2px;
+}
+.lv-draft-number {
+  font-size: 12px;
+  font-weight: 900;
+  color: #7ac5bd;
+}
+.lv-draft-item > div {
+  flex: 1;
+}
+.lv-draft-item strong {
+  font-size: 12px;
+}
+.lv-draft-item p {
+  font-size: 11px;
+  color: #868fa3;
+  margin: 5px 0 0;
+}
+.lv-session-panel .lv-info-note {
+  margin-bottom: 0;
+}
+.lv-success {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #8be4c8;
+  font-size: 12px;
+}
+.lv-skill-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.lv-skill-card {
+  padding: 22px;
+}
+.lv-skill-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lv-skill-symbol {
+  border-radius: 12px;
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+}
+.lv-skill-top > span {
+  font-size: 10px;
+  font-weight: 800;
+  color: #8e9fae;
+  letter-spacing: 1px;
+}
+.lv-skill-card h3 {
+  font-size: 17px;
+  margin-top: 16px;
+}
+.lv-skill-card > p {
+  font-size: 11px;
+  color: #8d94ab;
+  margin: 7px 0 17px;
+}
+.lv-skill-stage {
+  font-size: 11px;
+  color: #b3e7dc;
+  margin-bottom: 10px;
+  min-height: 16px;
+  font-weight: 800;
+}
+.lv-skill-steps {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+.lv-skill-steps button {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  background: #343149;
+  border: 1px solid #514b61;
+  color: #89869e;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+}
+.lv-skill-steps button.achieved {
+  background: var(--skill-color);
+  border-color: var(--skill-color);
+  color: #17232b;
+}
+.lv-skill-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.lv-skill-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #2d3447;
+  border: 1px solid #424c60;
+  color: #c5cfdb;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 10px;
+  flex: 1;
+}
+.lv-skill-actions button:hover:not(:disabled) {
+  background: #36505a;
+}
+.lv-skill-actions button:disabled {
+  opacity: 0.3;
+}
+.lv-history-item {
+  border-top: 1px solid #ffffff0f;
+  padding: 13px 0;
+}
+.lv-history-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.lv-history-expand {
+  background: transparent;
+  border: 0;
+  color: #ddd9ed;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+.lv-history-expand > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.lv-history-expand strong {
+  font-size: 12px;
+}
+.lv-history-expand small {
+  font-size: 10px;
+  color: #9392a9;
+}
+.lv-history-icon {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  background: #24605e52;
+  color: #7cddcd;
+}
+.lv-history-details {
+  margin: 12px 0 3px 47px;
+  border-left: 1px solid #446863;
+  padding-left: 15px;
+}
+.lv-history-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+  font-size: 11px;
+}
+.lv-history-details > div strong {
+  font-weight: 700;
+}
+.lv-history-details > div span {
+  color: #9dabb4;
+  text-align: right;
+}
+.lv-history-details p {
+  color: #9fa8b8;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.lv-record {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #ffffff12;
+  padding: 13px 0;
+}
+.lv-record > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.lv-record strong {
+  font-size: 12px;
+}
+.lv-record span {
+  font-size: 10px;
+  color: #8e91aa;
+}
+.lv-record b {
+  font-size: 19px;
+  color: #95e3d2;
+  white-space: nowrap;
+}
+.lv-record small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #8fa9a5;
+}
+.lv-hub-footnote {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: #77738d;
+  margin-top: 22px;
+}
+.lv-hub-footnote > span {
+  margin-left: auto;
+  color: #aa95dd;
+}
+.lv-preview-area {
+  min-height: 370px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 18px;
+  border: 1px solid #403751;
+  background: radial-gradient(circle at 50% 40%, #6d4e9539, transparent 50%), #1b1a31;
+  padding: 30px;
+}
+.lv-preview-orb {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  color: #c4a6ff;
+  background: radial-gradient(circle at 38% 29%, #5c5696, #252449);
+  box-shadow: 0 0 55px #9779dd3a;
+  margin-bottom: 10px;
+}
+.lv-preview-area h3 {
+  font-size: 22px;
+  margin: 14px 0 7px;
+}
+.lv-preview-area p {
+  font-size: 13px;
+  color: #a09bb7;
+  max-width: 550px;
+  line-height: 1.7;
+}
+.lv-preview-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+.lv-preview-pills span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #6a5385;
+  padding: 8px 14px;
+  border-radius: 30px;
+  color: #d2baf9;
+  font-size: 11px;
+}
+@media (max-width: 1100px) {
+  .lv-skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-stat {
+    min-height: 140px;
+    padding: 14px;
+  }
+  .lv-stat strong {
+    font-size: 26px;
+  }
+}
+@media (max-width: 740px) {
+  .lv-dashboard-overlay {
+    padding: 0;
+  }
+  .lv-dashboard-window {
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border: 0;
+    border-radius: 0;
+  }
+  .lv-dashboard-bar {
+    padding: 12px 15px;
+    min-height: 73px;
+  }
+  .lv-hub-xp {
+    display: none;
+  }
+  .lv-back-button span {
+    display: none;
+  }
+  .lv-back-button {
+    padding: 10px;
+  }
+  .lv-close-button {
+    display: grid;
+  }
+  .lv-dashboard-identity h2 {
+    font-size: 16px;
+  }
+  .lv-hub-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .lv-dashboard-bottom {
+    padding: 10px 15px;
+  }
+  .lv-dashboard-content {
+    padding: 12px 0 0;
+  }
+  .lv-dashboard-hero {
+    margin: 0 13px 2px;
+    min-height: 168px;
+    border-radius: 20px;
+  }
+  .lv-dashboard-hero img {
+    min-height: 168px;
+    max-height: 210px;
+  }
+  .lv-dashboard-hero-overlay {
+    width: auto;
+    padding: 18px 16px 18px;
+  }
+  .lv-dashboard-hero h3 {
+    font-size: 22px;
+  }
+  .lv-dashboard-hero p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .lv-hub-body {
+    padding: 16px 13px;
+  }
+  .lv-tabs {
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  .lv-tabs button {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+  .lv-section-heading {
+    align-items: flex-start;
+  }
+  .lv-section-heading h2 {
+    font-size: 26px;
+  }
+  .lv-section-heading .lv-btn {
+    padding: 10px;
+    font-size: 11px;
+  }
+  .lv-date-chip {
+    display: none;
+  }
+  .lv-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .lv-stat {
+    min-height: 135px;
+  }
+  .lv-content-grid,
+  .lv-log-grid {
+    grid-template-columns: 1fr;
+  }
+  .lv-add-form {
+    align-items: stretch;
+  }
+  .lv-add-form > .lv-btn {
+    width: 100%;
+  }
+  .lv-goals-grid,
+  .lv-skill-grid {
+    grid-template-columns: 1fr;
+  }
+  .lv-panel {
+    padding: 16px;
+  }
+  .lv-chart {
+    height: 140px;
+  }
+  .lv-goal h3 {
+    min-height: 0;
+  }
+}
+@media (max-width: 420px) {
+  .lv-tabs {
+    gap: 0;
+  }
+  .lv-tabs button {
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+  .lv-section-heading .lv-btn {
+    font-size: 0;
+    padding: 10px;
+  }
+  .lv-section-heading .lv-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .lv-section-heading .lv-btn:has(svg) {
+    gap: 0;
+  }
+  .lv-task {
+    gap: 7px;
+  }
+  .lv-xp-tag {
+    font-size: 9px;
+  }
+  .lv-input-row {
+    flex-wrap: wrap;
+  }
+  .lv-input-row .lv-field {
+    min-width: 85px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-chart-fill,
+  .lv-btn,
+  .lv-tabs button,
+  .lv-mission {
+    transition: none;
+  }
+}
+.lv-backup-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lv-backup-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #49415d;
+  background: #29253d;
+  color: #bbb0d5;
+  border-radius: 7px;
+  padding: 5px 8px;
+  font-size: 10px;
+}
+.lv-backup-actions button:hover {
+  color: white;
+  background: #44345f;
+}
+@media (max-width: 480px) {
+  .lv-dashboard-bottom > span {
+    display: none;
+  }
+  .lv-backup-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* Chapter II: fantasy-lite progression UI. All effects are cosmetic and respect reduced motion. */
+.lv-quest-briefing {
+  --quest-accent: #bda2ff;
+  --quest-glow: #815ad2;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 75px minmax(0, 1fr) 170px;
+  gap: 20px;
+  padding: 24px;
+  margin: 0 0 21px;
+  border: 1px solid #725c9a90;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 0 0, #65439d5b, transparent 45%),
+    radial-gradient(ellipse at 93% 94%, #7658b32d, transparent 50%),
+    linear-gradient(110deg, #29213e, #191b33 72%);
+  box-shadow:
+    inset 0 1px #d2b4ff13,
+    0 15px 45px #06061535;
+}
+.lv-quest-mint {
+  --quest-accent: #8ae6d7;
+  --quest-glow: #41b6a8;
+  border-color: #4b9a9a85;
+  background:
+    radial-gradient(ellipse at 0 0, #235e666a, transparent 50%),
+    radial-gradient(ellipse at 93% 94%, #286b6950, transparent 50%),
+    linear-gradient(110deg, #203641, #171e31 72%);
+}
+.lv-quest-briefing:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.32;
+  pointer-events: none;
+  background-image:
+    linear-gradient(110deg, transparent 48%, #ffffff0b 49%, transparent 50%),
+    radial-gradient(circle, #ffffff70 1px, transparent 1.7px);
+  background-size:
+    180px 180px,
+    66px 66px;
+  mask-image: linear-gradient(90deg, #000, transparent 85%);
+}
+.lv-quest-emblem {
+  width: 68px;
+  height: 68px;
+  border-radius: 19px;
+  border: 1px solid color-mix(in srgb, var(--quest-accent), transparent 35%);
+  display: grid;
+  place-items: center;
+  color: var(--quest-accent);
+  background: radial-gradient(circle at 25% 15%, #ffffff25, transparent 50%), #ffffff0a;
+  box-shadow: 0 0 30px color-mix(in srgb, var(--quest-glow), transparent 70%);
+  position: relative;
+  transform: rotate(-5deg);
+}
+.lv-quest-emblem span {
+  position: absolute;
+  right: -8px;
+  top: -10px;
+  font-size: 20px;
+}
+.lv-quest-kicker {
+  font-size: 9px;
+  letter-spacing: 2.1px;
+  color: var(--quest-accent);
+  font-weight: 900;
+}
+.lv-quest-main h3 {
+  font-size: 24px;
+  letter-spacing: -0.6px;
+  margin: 7px 0 4px;
+}
+.lv-quest-main > p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #a7a3bf;
+  margin: 0 0 16px;
+}
+.lv-quest-meter {
+  max-width: 540px;
+}
+.lv-quest-meter-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #aba5c4;
+  font-size: 10px;
+  margin-bottom: 7px;
+}
+.lv-quest-meter-line strong {
+  color: #e4dafa;
+}
+.lv-quest-track {
+  background: #0e1126;
+  height: 8px;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid #ffffff15;
+}
+.lv-quest-track span {
+  display: block;
+  height: 100%;
+  border-radius: 40px;
+  background: linear-gradient(90deg, var(--quest-glow), var(--quest-accent));
+  box-shadow: 0 0 15px var(--quest-accent);
+  transition: width 0.35s;
+}
+.lv-quest-objectives {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+}
+.lv-quest-objectives > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid #ffffff17;
+  border-radius: 8px;
+  background: #0d132439;
+  font-size: 10px;
+  color: #a5a2bc;
+}
+.lv-quest-objectives > div.done {
+  border-color: color-mix(in srgb, var(--quest-accent), transparent 60%);
+  color: #e3e1f0;
+}
+.lv-quest-objectives svg {
+  color: var(--quest-accent);
+}
+.lv-quest-hollow {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 1.4px solid #756e92;
+  border-radius: 50%;
+}
+.lv-quest-objectives em {
+  font-size: 9px;
+  color: var(--quest-accent);
+  font-style: normal;
+}
+.lv-quest-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-left: 1px solid #ffffff1a;
+  padding-left: 19px;
+}
+.lv-quest-reward-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff12;
+  color: var(--quest-accent);
+}
+.lv-quest-reward small {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  font-weight: 850;
+  color: #a6a1bd;
+}
+.lv-quest-reward strong {
+  font-size: 34px;
+  letter-spacing: -1px;
+  color: #f5edff;
+  text-shadow: 0 0 25px var(--quest-glow);
+}
+.lv-quest-reward button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--quest-accent), transparent 45%);
+  background: color-mix(in srgb, var(--quest-glow), transparent 68%);
+  color: #f5efff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 10px;
+  border-radius: 9px;
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.lv-quest-reward button:hover {
+  filter: brightness(1.25);
+}
+.lv-stat {
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.lv-stat:hover {
+  transform: translateY(-3px);
+  border-color: #8c77a1;
+  box-shadow: 0 14px 25px #05051438;
+}
+.lv-quest-mint ~ .lv-stat-grid .lv-stat:hover {
+  border-color: #66b6a5;
+}
+.lv-skill-constellation {
+  position: relative;
+}
+.lv-skill-constellation .lv-skill-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 0, #6ca8af15, transparent 47%),
+    linear-gradient(145deg, #24213c, #1a2031);
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.lv-skill-constellation .lv-skill-card:before {
+  content: '✦';
+  position: absolute;
+  right: 18px;
+  top: 55px;
+  font-size: 45px;
+  color: #ffffff08;
+  pointer-events: none;
+}
+.lv-skill-constellation .lv-skill-card:hover {
+  transform: translateY(-4px);
+  border-color: #63bbaa8c;
+  box-shadow: 0 18px 35px #060b194d;
+}
+.lv-skill-constellation .lv-skill-symbol {
+  border: 1px solid currentColor;
+  box-shadow: 0 0 21px #77cfc41b;
+}
+.lv-skill-constellation .lv-skill-stage {
+  min-height: 28px;
+  font-size: 10px;
+  letter-spacing: 0.25px;
+}
+.lv-skill-constellation .lv-skill-steps {
+  position: relative;
+  padding: 4px 0;
+}
+.lv-skill-constellation .lv-skill-steps:before {
+  content: '';
+  height: 2px;
+  background: #48596a;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+}
+.lv-skill-constellation .lv-skill-steps button {
+  position: relative;
+  border-radius: 50%;
+  z-index: 1;
+  max-width: 42px;
+  margin: auto;
+  box-shadow: 0 0 0 3px #202234;
+}
+.lv-skill-constellation .lv-skill-steps button.achieved {
+  box-shadow:
+    0 0 14px var(--skill-color),
+    0 0 0 3px #202234;
+}
+.lv-skill-constellation .lv-skill-steps button:hover {
+  transform: scale(1.09);
+}
+@media (max-width: 850px) {
+  .lv-quest-briefing {
+    grid-template-columns: 55px 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+  .lv-quest-emblem {
+    width: 51px;
+    height: 51px;
+  }
+  .lv-quest-reward {
+    grid-column: 2;
+    align-items: flex-start;
+    border-left: 0;
+    border-top: 1px solid #ffffff1a;
+    padding: 13px 0 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .lv-quest-reward strong {
+    font-size: 25px;
+  }
+  .lv-quest-reward button {
+    width: auto;
+    margin: 0 0 0 auto;
+  }
+}
+@media (max-width: 510px) {
+  .lv-quest-briefing {
+    grid-template-columns: 1fr;
+  }
+  .lv-quest-emblem {
+    display: none;
+  }
+  .lv-quest-main h3 {
+    font-size: 21px;
+  }
+  .lv-quest-reward {
+    grid-column: 1;
+  }
+  .lv-quest-objectives > div {
+    width: 100%;
+  }
+  .lv-quest-objectives > div > span:nth-child(2) {
+    flex: 1;
+  }
+  .lv-quest-reward button {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-stat,
+  .lv-skill-constellation .lv-skill-card,
+  .lv-quest-track span {
+    transition: none;
+  }
+  .lv-stat:hover,
+  .lv-skill-constellation .lv-skill-card:hover {
+    transform: none;
+  }
+}

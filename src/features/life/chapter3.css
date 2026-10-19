@@ -1,0 +1,1199 @@
+.lv-profile-open {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #253349;
+  border: 1px solid #47627b;
+  color: #dcf9f4;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 750;
+  font-size: 12px;
+}
+.lv-profile-open:hover:not(:disabled) {
+  background: #31506a;
+}
+.lv-profile-open:disabled {
+  opacity: 0.5;
+}
+.lv-profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: #060715df;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+}
+.lv-profile-window {
+  width: min(1080px, 100%);
+  max-height: min(88vh, 900px);
+  background: #121329;
+  border: 1px solid #5e5382;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 36px 110px #000b;
+}
+.lv-profile-window > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 25px;
+  background: #1a1a35;
+  border-bottom: 1px solid #343353;
+}
+.lv-profile-window > header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cbb9ff;
+}
+.lv-profile-window > header h2 {
+  margin: 0;
+  font-size: 17px;
+  color: #fff;
+}
+.lv-profile-window > header button {
+  background: #322f4a;
+  border: 1px solid #4b4263;
+  color: white;
+  border-radius: 10px;
+  padding: 8px;
+  display: grid;
+  place-items: center;
+}
+.lv-profile-scroll {
+  overflow-y: auto;
+  padding: 28px;
+}
+.lv-profile {
+  display: grid;
+  gap: 23px;
+}
+.lv-profile-hero {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  border-radius: 22px;
+  padding: 22px 30px;
+  background:
+    radial-gradient(circle at 15% 25%, #51437f99, transparent 50%),
+    linear-gradient(130deg, #28223f, #162c3b);
+  border: 1px solid #635887;
+}
+.lv-profile-portrait {
+  height: 200px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 19px;
+  background: radial-gradient(ellipse at bottom, #7562a8 0, transparent 64%);
+}
+.lv-profile-portrait .lv-detailed-avatar {
+  position: relative !important;
+  inset: auto !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  height: 195px !important;
+  width: 150px !important;
+  max-height: 100%;
+  aspect-ratio: 3/4;
+}
+.lv-profile-portrait .lv-detailed-avatar img {
+  object-fit: contain;
+}
+.lv-profile-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #9fe9e0;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.lv-profile-intro h2,
+.lv-tree-heading h2 {
+  font-size: clamp(23px, 3vw, 35px);
+  letter-spacing: -1.1px;
+  margin: 12px 0 8px;
+  color: #faf5ff;
+}
+.lv-profile-intro p,
+.lv-tree-heading p {
+  font-size: 13px;
+  color: #b7b2d0;
+  line-height: 1.7;
+  max-width: 510px;
+}
+.lv-profile-level {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 25px;
+  gap: 10px;
+}
+.lv-profile-level b {
+  display: block;
+  font-size: 20px;
+}
+.lv-profile-level span,
+.lv-profile-level strong {
+  font-size: 12px;
+  color: #c7b7e9;
+}
+.lv-profile-track {
+  height: 9px;
+  border-radius: 30px;
+  background: #131329;
+  margin: 11px 0 7px;
+  overflow: hidden;
+}
+.lv-profile-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #9c87ff, #8ce8d9);
+  border-radius: 30px;
+  box-shadow: 0 0 20px #9e8dff;
+}
+.lv-profile-intro small {
+  color: #b0a4cd;
+  font-size: 11px;
+}
+.lv-profile-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.lv-profile-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  background: #211f39;
+  border: 1px solid #3c3858;
+  border-radius: 15px;
+  padding: 18px;
+}
+.lv-profile-metrics svg {
+  color: #a7e5de;
+  width: 20px;
+}
+.lv-profile-metrics b {
+  font-size: 26px;
+}
+.lv-profile-metrics span {
+  font-size: 11px;
+  color: #aaa5c7;
+}
+.lv-profile-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lv-profile-section-title > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #efd49b;
+}
+.lv-profile-section-title h3 {
+  font-size: 17px;
+  margin: 0;
+  color: #faf7ff;
+}
+.lv-profile-section-title > span {
+  color: #a4a0bf;
+  font-size: 12px;
+}
+.lv-medal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.lv-medal {
+  position: relative;
+  background: #211e37;
+  border: 1px solid #51436c;
+  border-radius: 15px;
+  padding: 19px 14px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.lv-medal.locked {
+  opacity: 0.58;
+  filter: saturate(0.55);
+}
+.lv-medal-emblem {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #564476;
+  color: #eecaff;
+}
+.lv-medal.unlocked .lv-medal-emblem {
+  background: #4d4140;
+  color: #ffd88e;
+  box-shadow: 0 0 20px #dfb77624;
+}
+.lv-medal h4 {
+  font-size: 12px;
+  margin: 3px 0 6px;
+}
+.lv-medal p {
+  color: #aaa5c1;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+.lv-medal-state {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #eac38d;
+  font-size: 10px;
+}
+.lv-medal.locked .lv-medal-state {
+  color: #aaa5c1;
+}
+.lv-profile-xp {
+  padding: 22px;
+  background: #1c2239;
+  border: 1px solid #3a4967;
+  border-radius: 17px;
+}
+.lv-profile-xp > div:first-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #c1a4ff;
+}
+.lv-profile-xp h3 {
+  color: #f5f1ff;
+  margin: 0;
+  font-size: 16px;
+}
+.lv-profile-xp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 17px;
+}
+.lv-profile-xp-grid span {
+  display: grid;
+  gap: 5px;
+  background: #272941;
+  border-radius: 11px;
+  padding: 14px;
+}
+.lv-profile-xp-grid b {
+  font-size: 19px;
+}
+.lv-profile-xp-grid small {
+  font-size: 11px;
+  color: #a8a6c5;
+}
+.lv-profile-note {
+  font-size: 11px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #aca9c8;
+  margin: 0;
+}
+.lv-xp-toast {
+  position: fixed;
+  z-index: 200;
+  right: 24px;
+  bottom: 25px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 1px solid #bfb1ff;
+  background: linear-gradient(120deg, #4d376d, #253c53);
+  box-shadow: 0 15px 65px #000a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.lv-xp-toast svg {
+  color: #efcd93;
+}
+.lv-tree {
+  display: grid;
+  gap: 23px;
+}
+.lv-tree-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+}
+.lv-tree-heading h2 {
+  margin: 9px 0;
+}
+.lv-tree-count {
+  font-size: 12px;
+  color: #aee9dd;
+  background: #23413f;
+  border: 1px solid #387875;
+  border-radius: 40px;
+  padding: 9px 13px;
+  white-space: nowrap;
+}
+.lv-tree-selector {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+}
+.lv-tree-selector button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 12px;
+  border: 1px solid #49415f;
+  border-radius: 13px;
+  background: #242038;
+  color: #ccc5e1;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 750;
+}
+.lv-tree-selector button.selected {
+  border-color: var(--path-color);
+  color: #fff;
+  box-shadow:
+    inset 0 0 22px #ffffff08,
+    0 0 20px #0005;
+}
+.lv-tree-selector button svg {
+  color: var(--path-color);
+  flex-shrink: 0;
+}
+.lv-tree-selector button span {
+  flex: 1;
+}
+.lv-tree-selector button small {
+  color: #aaa2c2;
+}
+.lv-tree-path {
+  border: 1px solid #4e4b69;
+  background: radial-gradient(circle at 50% -25%, #493d6c88, transparent 70%), #1b1b31;
+  border-radius: 19px;
+  padding: 24px 25px;
+  overflow: hidden;
+}
+.lv-tree-path-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.lv-tree-glyph {
+  width: 55px;
+  height: 55px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: var(--path-color);
+  background: #ffffff0a;
+  border: 1px solid var(--path-color);
+  flex-shrink: 0;
+}
+.lv-tree-path-heading > div:nth-child(2) {
+  flex: 1;
+}
+.lv-tree-path-heading span,
+.lv-tree-detail span {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  color: #b1a4ce;
+  font-weight: 850;
+}
+.lv-tree-path-heading h3 {
+  font-size: 19px;
+  margin: 4px 0;
+}
+.lv-tree-path-heading p {
+  font-size: 12px;
+  color: #aaa5c4;
+  margin: 0;
+}
+.lv-tree-path-heading > b {
+  font-size: 11px;
+  color: var(--path-color);
+  background: #ffffff0b;
+  padding: 9px;
+  border-radius: 9px;
+}
+.lv-tree-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 33px 0 22px;
+  position: relative;
+}
+.lv-tree-track:before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  height: 3px;
+  left: 8%;
+  right: 8%;
+  background: linear-gradient(90deg, var(--path-color), #3b3659);
+  z-index: 0;
+}
+.lv-tree-node {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  min-width: 0;
+  padding: 0 3px;
+  cursor: pointer;
+}
+.lv-tree-node-orb {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 17px;
+  background: #252440;
+  border: 2px solid #5a526c;
+  color: #958ba9;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.lv-tree-node:hover .lv-tree-node-orb {
+  transform: translateY(-3px);
+}
+.lv-tree-node.earned .lv-tree-node-orb {
+  background: color-mix(in srgb, var(--path-color) 25%, #1d2435);
+  border-color: var(--path-color);
+  color: var(--path-color);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--path-color) 25%, transparent);
+}
+.lv-tree-node.next .lv-tree-node-orb {
+  border-color: var(--path-color);
+  color: var(--path-color);
+  box-shadow: 0 0 0 5px #ffffff0a;
+}
+.lv-tree-step {
+  font-size: 9px;
+  color: #ada5c4;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.lv-tree-node strong {
+  font-size: 11px;
+  line-height: 1.35;
+  max-width: 120px;
+}
+.lv-tree-node small {
+  font-size: 10px;
+  color: #a4a0bb;
+}
+.lv-tree-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  background: #13182d99;
+  border: 1px solid #46415b;
+  padding: 19px;
+  border-radius: 14px;
+}
+.lv-tree-detail h4 {
+  font-size: 17px;
+  margin: 7px 0;
+}
+.lv-tree-detail p {
+  color: #b3adc8;
+  font-size: 11px;
+  max-width: 475px;
+  line-height: 1.6;
+}
+.lv-tree-control {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.lv-tree-control button,
+.lv-tree-confirm button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background: #342e4a;
+  color: #eee8ff;
+  padding: 10px 12px;
+  border: 1px solid #635977;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 750;
+}
+.lv-tree-control button:last-child,
+.lv-tree-confirm .lv-tree-accept {
+  background: #256d67;
+  border-color: #57aa9c;
+  color: #fff;
+}
+.lv-tree-control button:disabled {
+  opacity: 0.35;
+}
+.lv-tree-confirm {
+  margin-top: 15px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  padding: 15px;
+  background: #334050;
+  border: 1px solid var(--path-color);
+}
+.lv-tree-confirm b {
+  font-size: 12px;
+}
+.lv-tree-confirm p {
+  font-size: 11px;
+  color: #c9c5d9;
+}
+.lv-tree-confirm > div:last-child {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+@media (max-width: 780px) {
+  .lv-medal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-profile-hero {
+    grid-template-columns: 120px 1fr;
+    padding: 15px;
+    gap: 12px;
+  }
+  .lv-profile-portrait {
+    height: 165px;
+  }
+  .lv-tree-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-tree-detail {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .lv-tree-control {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 520px) {
+  .lv-profile-open span {
+    display: none;
+  }
+  .lv-profile-overlay {
+    padding: 8px;
+  }
+  .lv-profile-scroll {
+    padding: 12px;
+  }
+  .lv-profile-hero {
+    grid-template-columns: 1fr;
+  }
+  .lv-profile-portrait {
+    height: 160px;
+  }
+  .lv-profile-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lv-medal-grid {
+    grid-template-columns: 1fr;
+  }
+  .lv-profile-xp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .lv-tree-heading {
+    display: block;
+  }
+  .lv-tree-count {
+    display: inline-block;
+    margin-top: 8px;
+  }
+  .lv-tree-selector {
+    grid-template-columns: 1fr 1fr;
+  }
+  .lv-tree-selector button {
+    font-size: 10px;
+    padding: 8px;
+  }
+  .lv-tree-path {
+    padding: 15px 10px;
+  }
+  .lv-tree-track {
+    gap: 0;
+  }
+  .lv-tree-node-orb {
+    width: 42px;
+    height: 42px;
+  }
+  .lv-tree-track:before {
+    top: 21px;
+  }
+  .lv-tree-node strong {
+    font-size: 9px;
+  }
+  .lv-tree-node small {
+    font-size: 9px;
+  }
+  .lv-tree-confirm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lv-tree-path-heading > b {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-tree-node-orb {
+    transition: none;
+  }
+}
+/* Chapter IV — presentation refinements only. No changes to saved data or XP rules. */
+.lv-profile-hero {
+  grid-template-columns: minmax(230px, 0.38fr) minmax(0, 1fr);
+  gap: 32px;
+  min-height: 320px;
+  padding: 25px 32px;
+  background:
+    radial-gradient(ellipse at 16% 86%, #6f56aa66, transparent 44%),
+    radial-gradient(ellipse at 90% 8%, #28667c44, transparent 55%),
+    linear-gradient(130deg, #29223e, #142b3b);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.lv-profile-hero:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(112deg, transparent 30%, #ffffff08 48%, transparent 60%);
+  z-index: -1;
+}
+.lv-profile-portrait {
+  height: 278px;
+  min-height: 278px;
+  overflow: hidden;
+  border: 1px solid #aaa0d24a;
+  background: radial-gradient(ellipse at 50% 90%, #896ab177 0%, #3b325444 40%, transparent 72%);
+  box-shadow:
+    inset 0 -35px 65px #9d81c122,
+    0 17px 36px #08081955;
+}
+.lv-profile-portrait:after {
+  content: '';
+  position: absolute;
+  bottom: 26px;
+  left: 20%;
+  right: 20%;
+  height: 14px;
+  border-radius: 50%;
+  background: #0008;
+  filter: blur(10px);
+}
+.lv-portrait-halo {
+  position: absolute;
+  inset: 18px 20px 26px;
+  border-radius: 50%;
+  border: 1px solid #d0b8ff2b;
+  box-shadow:
+    0 0 0 18px #cbb6ff09,
+    0 0 0 40px #cbb6ff05;
+}
+.lv-profile-portrait .lv-detailed-avatar {
+  z-index: 1;
+  height: 254px !important;
+  width: 195px !important;
+  max-height: unset;
+  filter: drop-shadow(0 10px 14px #07051191);
+}
+.lv-portrait-caption {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #e3d7ff;
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  font-weight: 850;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: #211f3cbb;
+  border: 1px solid #a48de355;
+  padding: 6px 10px;
+  border-radius: 30px;
+}
+.lv-profile-intro h2 {
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1.13;
+}
+.lv-profile-intro p {
+  font-size: 14px;
+}
+.lv-profile-level b {
+  font-size: 25px;
+}
+.lv-profile-track {
+  height: 12px;
+  border: 1px solid #ffffff12;
+}
+.lv-profile-track span {
+  transition: width 0.5s ease;
+}
+.lv-profile-metrics > div {
+  background: linear-gradient(155deg, #28253f, #1e2038);
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+.lv-profile-metrics > div:hover {
+  transform: translateY(-3px);
+  border-color: #7b6aa0;
+}
+.lv-medal-subtitle {
+  color: #b9b1d1;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: -12px 0 -7px;
+}
+.lv-medal {
+  min-height: 148px;
+  grid-template-columns: 62px 1fr;
+  align-content: center;
+  gap: 9px 14px;
+  padding: 18px;
+  overflow: hidden;
+  transition:
+    transform 0.22s,
+    border-color 0.22s,
+    box-shadow 0.22s;
+}
+.lv-medal:hover {
+  transform: translateY(-3px);
+  border-color: #a489cb;
+}
+.lv-medal.unlocked {
+  background:
+    radial-gradient(circle at 16% 18%, #9e71352e, transparent 56%),
+    linear-gradient(125deg, #30273d, #232039);
+  border-color: #a88655;
+  box-shadow: inset 0 1px #fff1c314;
+}
+.lv-medal.locked {
+  opacity: 0.78;
+  filter: saturate(0.65);
+}
+.lv-medal-emblem {
+  width: 58px;
+  height: 64px;
+  border-radius: 17px;
+  position: relative;
+  background: linear-gradient(150deg, #4c4266, #29283f);
+  border: 1px solid #8576a744;
+}
+.lv-medal-emblem:before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 19px;
+  top: -10px;
+  left: 17px;
+  transform: rotate(-17deg);
+  background: #6c5680;
+  border-radius: 3px;
+  z-index: 0;
+}
+.lv-medal-emblem:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 19px;
+  top: -10px;
+  right: 17px;
+  transform: rotate(17deg);
+  background: #6c5680;
+  border-radius: 3px;
+  z-index: 0;
+}
+.lv-medal-emblem > svg {
+  position: relative;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+}
+.lv-medal-emblem-ring {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  inset: 9px auto auto 6px;
+  border-radius: 50%;
+  border: 1px solid #e0c5ff40;
+}
+.lv-medal.unlocked .lv-medal-emblem {
+  background: radial-gradient(circle at 40% 25%, #f9d998, #886336 68%, #58422d);
+  border-color: #e2bc73;
+  color: #fff4d2;
+  box-shadow: 0 0 22px #ffc06c33;
+}
+.lv-medal.unlocked .lv-medal-emblem:before,
+.lv-medal.unlocked .lv-medal-emblem:after {
+  background: #8b5571;
+}
+.lv-medal h4 {
+  font-size: 14px;
+  margin: 1px 0 7px;
+}
+.lv-medal p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.lv-medal-state {
+  font-size: 11px;
+}
+.lv-tree-selector button {
+  min-height: 53px;
+  transition:
+    transform 0.18s,
+    border-color 0.18s,
+    background 0.18s;
+}
+.lv-tree-selector button:hover {
+  transform: translateY(-2px);
+  background: #302a49;
+}
+.lv-tree-selector button.selected {
+  background: color-mix(in srgb, var(--path-color) 13%, #242038);
+}
+.lv-tree-path {
+  padding: 27px 29px;
+  background: radial-gradient(circle at 50% -25%, #5343788c, transparent 70%), #1b1b31;
+}
+.lv-tree-track {
+  gap: 10px;
+  margin: 40px 0 26px;
+}
+.lv-tree-node-orb {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+}
+.lv-tree-track:before {
+  top: 32px;
+}
+.lv-tree-node strong {
+  font-size: 12px;
+  max-width: 135px;
+}
+.lv-tree-node small {
+  font-size: 11px;
+}
+.lv-tree-step {
+  font-size: 10px;
+}
+.lv-tree-node.inspected .lv-tree-node-orb {
+  outline: 2px solid #fbf2ff;
+  outline-offset: 4px;
+  transform: translateY(-3px);
+}
+.lv-stage-inspector {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(105deg, #2c2949, #222b40);
+  border: 1px solid color-mix(in srgb, var(--path-color) 45%, #4e4b69);
+  padding: 20px 23px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.lv-stage-inspector-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  color: var(--path-color);
+  background: color-mix(in srgb, var(--path-color) 12%, #252440);
+}
+.lv-stage-inspector > div:nth-child(2) {
+  flex: 1;
+}
+.lv-stage-inspector span:first-child {
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  font-weight: 850;
+  color: #b3a6d3;
+}
+.lv-stage-inspector h4 {
+  font-size: 19px;
+  margin: 5px 0;
+}
+.lv-stage-inspector p {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #c5bfd5;
+  margin: 0;
+}
+.lv-stage-inspector-state {
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--path-color);
+  border: 1px solid color-mix(in srgb, var(--path-color) 50%, transparent);
+  border-radius: 30px;
+  padding: 8px 11px;
+}
+.lv-tree-detail p {
+  font-size: 12px;
+}
+.lv-tree-control button,
+.lv-tree-confirm button {
+  font-size: 12px;
+  min-height: 40px;
+}
+.lv-tree-node:focus-visible,
+.lv-tree-selector button:focus-visible,
+.lv-tree-control button:focus-visible {
+  outline: 2px solid #d8c2ff;
+  outline-offset: 4px;
+}
+@media (max-width: 780px) {
+  .lv-profile-hero {
+    grid-template-columns: 175px minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  .lv-profile-portrait {
+    height: 230px;
+    min-height: 230px;
+  }
+  .lv-profile-portrait .lv-detailed-avatar {
+    height: 210px !important;
+    width: 165px !important;
+  }
+  .lv-medal {
+    grid-template-columns: 55px 1fr;
+  }
+  .lv-tree-path {
+    padding: 21px 15px;
+  }
+  .lv-tree-node-orb {
+    width: 51px;
+    height: 51px;
+  }
+  .lv-tree-track:before {
+    top: 25px;
+  }
+}
+@media (max-width: 520px) {
+  .lv-profile-hero {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .lv-profile-portrait {
+    height: 245px;
+    min-height: 245px;
+  }
+  .lv-profile-portrait .lv-detailed-avatar {
+    height: 235px !important;
+    width: 180px !important;
+  }
+  .lv-medal-grid {
+    grid-template-columns: 1fr;
+  }
+  .lv-tree-track {
+    overflow-x: auto;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    padding: 8px 5px 12px;
+  }
+  .lv-tree-track:before {
+    top: 33px;
+    left: 42px;
+    right: 42px;
+  }
+  .lv-stage-inspector {
+    flex-wrap: wrap;
+    padding: 15px;
+    gap: 11px;
+  }
+  .lv-stage-inspector-state {
+    margin-left: auto;
+  }
+  .lv-tree-node strong {
+    font-size: 11px;
+  }
+  .lv-tree-selector button {
+    min-height: 48px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-profile-metrics > div,
+  .lv-medal,
+  .lv-tree-selector button,
+  .lv-profile-track span {
+    transition: none;
+  }
+}
+
+/* Chapter IV refinement: dark scrolling, comfortable desktop spacing, and legible progress. */
+.lv-profile-window {
+  width: min(1240px, calc(100vw - 48px));
+  max-height: min(92dvh, 960px);
+}
+.lv-profile-scroll {
+  min-height: 0;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #665583 #17152c;
+}
+.lv-profile-scroll::-webkit-scrollbar,
+.lv-hub-body::-webkit-scrollbar {
+  width: 9px;
+}
+.lv-profile-scroll::-webkit-scrollbar-track,
+.lv-hub-body::-webkit-scrollbar-track {
+  background: #17152c;
+}
+.lv-profile-scroll::-webkit-scrollbar-thumb,
+.lv-hub-body::-webkit-scrollbar-thumb {
+  background: #574775;
+  border: 2px solid #17152c;
+  border-radius: 20px;
+}
+.lv-profile-scroll::-webkit-scrollbar-thumb:hover,
+.lv-hub-body::-webkit-scrollbar-thumb:hover {
+  background: #8571ab;
+}
+.lv-profile-hero {
+  grid-template-columns: minmax(245px, 0.36fr) minmax(0, 1fr);
+  gap: 36px;
+}
+.lv-profile-portrait {
+  height: 310px;
+  min-height: 310px;
+}
+.lv-profile-portrait .lv-detailed-avatar {
+  height: 289px !important;
+  width: 220px !important;
+}
+.lv-profile-track {
+  height: 13px;
+}
+.lv-profile-intro .lv-xp-explainer {
+  display: block;
+  margin-top: 10px;
+  color: #d3c7e8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.lv-tree-node {
+  min-height: 145px;
+}
+.lv-tree-node strong {
+  font-size: 13px;
+  line-height: 1.45;
+}
+.lv-tree-node small {
+  font-size: 11px;
+  line-height: 1.4;
+}
+.lv-stage-inspector p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.lv-tree-selector button {
+  font-size: 13px;
+}
+@media (max-width: 780px) {
+  .lv-profile-window {
+    width: min(100%, calc(100vw - 24px));
+  }
+  .lv-profile-hero {
+    grid-template-columns: 175px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .lv-profile-portrait {
+    height: 230px;
+    min-height: 230px;
+  }
+  .lv-profile-portrait .lv-detailed-avatar {
+    height: 210px !important;
+    width: 165px !important;
+  }
+}
+@media (max-width: 520px) {
+  .lv-profile-window {
+    width: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+  .lv-profile-hero {
+    grid-template-columns: 1fr;
+  }
+  .lv-profile-portrait {
+    height: 255px;
+    min-height: 255px;
+  }
+  .lv-profile-portrait .lv-detailed-avatar {
+    height: 245px !important;
+    width: 190px !important;
+  }
+  .lv-tree-node {
+    min-height: 142px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-profile-track span {
+    transition: none;
+  }
+}
+/* Chapter VI: show Explore alongside existing player stats and XP categories. */
+.lv-profile-metrics {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.lv-profile-xp-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+@media (max-width: 750px) {
+  .lv-profile-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lv-profile-xp-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .lv-profile-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,394 +1,483 @@
-
-#root {
-  min-height: 100vh;
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #f8f6ff;
+  background: #0a0e1e;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
-
 * {
   box-sizing: border-box;
 }
-
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+#root {
+  min-height: 100vh;
+}
 .lifeverse {
   min-height: 100vh;
-  padding: 28px;
-  background:
-    radial-gradient(ellipse at 50% 0%, #27234d 0%, transparent 55%),
-    #0c1020;
+  padding: 20px clamp(15px, 2vw, 36px) 14px;
+  background: radial-gradient(ellipse at 50% -25%, #38265c 0, transparent 68%), #0b0e1c;
   color: #f8f6ff;
-}
-
-.topbar {
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto 26px;
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.topbar {
+  max-width: 1680px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
-
-.topbar h1 {
+/* The room-tour button gets its own row on narrower screens and sits in the middle on wide ones. */
+.lv-tour-slot {
+  order: 3;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 1680px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .lv-tour-slot {
+    order: 0;
+  }
+  .lv-top-actions {
+    justify-self: end;
+  }
+}
+.lv-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lv-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #9076d9, #5d3e9d);
+  box-shadow: 0 8px 35px #6e4ac14d;
+}
+.lv-brand h1 {
+  margin: 0;
+  font-size: clamp(23px, 2.6vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -1.3px;
+}
+.lv-brand h1 span {
+  color: #d6adff;
+  font-size: 18px;
+}
+.lv-brand p {
+  margin: 6px 0 0;
+  color: #a9a4c2;
+  font-size: 12px;
+  letter-spacing: 0.15px;
+}
+.lv-top-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.lv-level-badge {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(26px, 4vw, 36px);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  margin: 0;
+  position: relative;
+  min-width: 148px;
+  background: #211d38;
+  border: 1px solid #554773;
+  border-radius: 13px;
+  padding: 9px 12px;
 }
-
-.topbar h1 svg {
-  color: #c4a5ff;
+.lv-level-icon {
+  display: grid;
+  place-items: center;
+  background: #423268;
+  color: #dcc1ff;
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
 }
-
-.topbar p,
-.room-hint {
-  color: #a7a2bf;
-  font-size: 14px;
+.lv-level-badge b {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
-
-.customize-button,
-.back-button {
-  display: inline-flex;
+.lv-level-badge small {
+  display: block;
+  margin-top: 2px;
+  color: #ae9fcd;
+  font-size: 10px;
+}
+.lv-level-mini {
+  position: absolute;
+  left: 55px;
+  right: 12px;
+  bottom: 5px;
+  height: 2px;
+  background: #4c3a69;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.lv-level-mini span {
+  display: block;
+  height: 100%;
+  background: #c7a6ff;
+}
+.customize-button {
+  display: flex;
   align-items: center;
   gap: 9px;
-  padding: 12px 18px;
-  background: #312b51;
-  border: 1px solid #61547f;
-  color: white;
+  padding: 12px 16px;
+  background: #302748;
+  border: 1px solid #65537f;
+  color: #f8f1ff;
   border-radius: 12px;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
-
-.customize-button:hover,
-.back-button:hover {
-  background: #4b3c79;
+.customize-button:hover:not(:disabled) {
+  background: #49356d;
   transform: translateY(-2px);
 }
-
 .customize-button:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
 }
-
 .room-container {
-  max-width: 1600px;
   width: 100%;
-  margin: auto;
-  position: relative;
-  border: 1px solid #514675;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 30px 100px #0008;
-  background: #181a33;
-}
-
-.room-viewport {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
+  max-width: 1680px;
+  margin: 0 auto;
+  flex: 1;
   min-height: 0;
-}
-
-.room-scene {
-  position: absolute;
-  inset: 0;
+  aspect-ratio: 16/9;
+  position: relative;
+  border: 1px solid #584776;
+  border-radius: 22px;
   overflow: hidden;
-  transform-origin: center center;
-  background: linear-gradient(140deg, #343056, #23213d);
+  background: #171228;
+  box-shadow:
+    0 24px 85px #0009,
+    0 0 85px #7858c01b;
 }
-
-.room-back-wall {
-  position: absolute;
-  inset: 0 0 33%;
-  background:
-    radial-gradient(ellipse at 48% 25%, #65508b66, transparent 65%),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 115px,
-      #ffffff07 116px
-    ),
-    #302d4c;
-  border-bottom: 12px solid #52466b;
-}
-
-.room-floor {
-  position: absolute;
-  bottom: 0;
+.room-container > .lv-room-viewport {
   width: 100%;
-  height: 33%;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 100px,
-      #ffffff09 101px
-    ),
-    linear-gradient(#615174, #3e344f);
-}
-
-.room-window {
-  position: absolute;
-  width: 17%;
-  height: 29%;
-  left: 42%;
-  top: 7%;
-  border: 10px solid #807094;
-  border-radius: 90px 90px 12px 12px;
-  background: linear-gradient(#0e183d, #3d386f);
-  box-shadow: 0 0 45px #9783ff33;
-  overflow: hidden;
-}
-
-.room-moon {
-  position: absolute;
-  width: 32%;
-  aspect-ratio: 1;
-  top: 18%;
-  left: 52%;
-  border-radius: 50%;
-  background: #fff0bc;
-  box-shadow: 0 0 28px #fff0bcaa;
-}
-
-.room-rug {
-  position: absolute;
-  left: 33%;
-  bottom: 7%;
-  width: 34%;
-  height: 18%;
-  border-radius: 50%;
-  background: #7865a0;
-  border: 8px solid #9681b7;
-  box-shadow: 0 12px 25px #0004;
-}
-
-.room-character {
-  position: absolute;
-  left: 50%;
-  top: 62%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  filter: drop-shadow(0 12px 12px #0005);
-}
-
-.room-object {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  width: clamp(66px, 9vw, 115px);
-  height: clamp(66px, 9vw, 115px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px solid #cbb8ff66;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #6d5a9d, #382c5e);
-  color: #f5eaff;
-  box-shadow: 0 12px 28px #0006, inset 0 1px #ffffff33;
-  cursor: pointer;
-  z-index: 5;
-}
-
-.room-object:hover {
-  border-color: #e3ceff;
-  box-shadow: 0 0 35px #ad8cff88, 0 15px 30px #0006;
-}
-
-.room-object-label {
-  font-size: clamp(9px, 1.1vw, 13px);
-  font-weight: 700;
-}
-
-.room-object-desk {
-  background: linear-gradient(145deg, #6778b9, #363c76);
-}
-
-.room-object-fitness {
-  background: linear-gradient(145deg, #ae795f, #75434d);
-}
-
-.room-object-globe {
-  background: linear-gradient(145deg, #4f9d9b, #28606d);
-}
-
-.room-object-trophies {
-  background: linear-gradient(145deg, #b99a61, #775b38);
-}
-
-.dashboard-overlay,
-.customizer-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: #0c1020bb;
-  backdrop-filter: blur(12px);
-}
-
-.dashboard-card {
-  width: min(100%, 700px);
-  max-height: 100%;
-  overflow-y: auto;
-  background: linear-gradient(145deg, #292442, #17172b);
-  border: 1px solid #72628f;
-  border-radius: 22px;
-  padding: clamp(20px, 4vw, 40px);
-  box-shadow: 0 30px 80px #0008;
-}
-
-.dashboard-card h2 {
-  font-size: clamp(24px, 4vw, 36px);
-  margin: 30px 0 10px;
-}
-
-.dashboard-card p {
-  color: #b8afce;
-}
-
-.dashboard-placeholder {
-  margin-top: 30px;
-  padding: 45px 20px;
-  text-align: center;
-  background: #ffffff08;
-  border: 1px dashed #73668e;
-  border-radius: 16px;
-  color: #c6b7e6;
-}
-
-.customizer-overlay {
-  position: fixed;
-  justify-content: flex-end;
-}
-
-.customizer-panel {
-  width: min(100%, 390px);
   height: 100%;
-  overflow-y: auto;
-  padding: 30px;
-  border-radius: 22px;
-  background: #211d37;
-  border: 1px solid #685782;
-  box-shadow: -20px 0 60px #0007;
 }
-
-.customizer h2 {
-  margin-top: 32px;
-  font-size: 26px;
-}
-
-.customizer p {
-  color: #aaa1c1;
-}
-
-.customizer-group {
-  margin-top: 28px;
-}
-
-.customizer-group h3 {
-  text-transform: capitalize;
-  margin-bottom: 12px;
-}
-
-.color-options {
+.lv-bottom-strip {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
   display: flex;
-  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-shrink: 0;
+  color: #a8a0c1;
+  font-size: 11px;
+  letter-spacing: 0.3px;
 }
-
-.color-option {
-  width: 42px;
-  height: 42px;
-  border: 3px solid transparent;
+.lv-bottom-strip > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lv-bottom-strip > div:first-child {
+  font-size: 10px;
+  color: #b5a4df;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+.lv-bottom-strip p {
+  margin: 0;
+}
+.lv-live-dot,
+.lv-status-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
+  background: #8de0ca;
+  box-shadow: 0 0 12px #80efce;
 }
-
-.color-option.selected {
-  outline: 2px solid white;
-  outline-offset: 3px;
-}
-
-.room-hint {
-  text-align: center;
-  margin-top: 22px;
-}
-
-@media (max-width: 650px) {
-  .lifeverse {
-    padding: 14px;
-  }
-
-  .room-viewport {
-    min-height: 390px;
-  }
-
-  .room-character {
-    transform: translate(-50%, -50%) scale(0.75);
-  }
-
-  .room-object {
-    width: 68px;
-    height: 68px;
-  }
-
-  .room-object svg {
-    width: 26px;
-  }
-
-  .topbar p {
-    font-size: 12px;
-  }
-
-  .customize-button {
-    padding: 10px;
-    font-size: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-  }
-}
-
 @media (min-width: 1100px) {
   .lifeverse {
-    padding: 16px 24px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: 650px;
   }
-
-  .topbar {
-    flex-shrink: 0;
-    margin-bottom: 14px;
-  }
-
   .room-container {
-    width: 100%;
-    max-width: none;
-    flex: 1;
-    min-height: 0;
-  }
-
-  .room-viewport {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    max-height: none;
     aspect-ratio: auto;
   }
-
-  .room-hint {
-    flex-shrink: 0;
-    margin: 12px 0 0;
+}
+@media (max-width: 680px) {
+  .lifeverse {
+    gap: 13px;
+    padding: 14px 12px;
   }
+  .lv-brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+  .lv-brand p {
+    font-size: 10px;
+  }
+  .lv-level-badge {
+    min-width: auto;
+    padding: 8px;
+  }
+  .lv-level-icon,
+  .lv-level-mini {
+    display: none;
+  }
+  .customize-button {
+    padding: 10px;
+  }
+  .customize-button span {
+    display: none;
+  }
+  /* Four top-bar buttons (Guide, Insights, Profile, Avatar) must fit on a phone. */
+  .lv-top-actions {
+    gap: 6px;
+  }
+  .lv-top-actions .lv-profile-open {
+    padding: 10px;
+  }
+  .room-container {
+    aspect-ratio: 16/11;
+    border-radius: 16px;
+    flex: initial;
+  }
+  .lv-bottom-strip {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .lv-bottom-strip p {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .lv-brand p {
+    display: none;
+  }
+  .lv-brand h1 {
+    font-size: 20px;
+  }
+  .lv-top-actions .lv-profile-open {
+    padding: 9px;
+  }
+}
+/* Chapter V: cinematic camera + shared room/dashboard atmosphere */
+.lv-cinematic-overlay {
+  background: radial-gradient(ellipse at 50% 42%, rgba(28, 24, 56, 0.7), rgba(5, 6, 19, 0.93) 90%);
+  backdrop-filter: blur(11px) saturate(1.15);
+}
+.lv-cinematic-overlay .lv-dashboard-window {
+  box-shadow:
+    0 40px 140px rgba(0, 0, 0, 0.85),
+    0 0 100px rgba(128, 100, 240, 0.16);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-cinematic-overlay {
+    backdrop-filter: none;
+  }
+}
+
+/* Chapter V.1 — camera-to-hub handoff. The colored ambient field is
+   intentionally behind the hub while the same room remains in the DOM. */
+.lv-cinematic-overlay {
+  isolation: isolate;
+  overflow: hidden;
+  background: rgba(7, 7, 20, 0.62);
+  backdrop-filter: blur(7px) saturate(1.12);
+}
+.lv-cinematic-overlay::before {
+  content: '';
+  position: absolute;
+  inset: -24%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
+  background: radial-gradient(
+    ellipse at var(--portal-x, 50%) var(--portal-y, 50%),
+    var(--portal-glow, rgba(146, 103, 245, 0.4)),
+    transparent 55%
+  );
+  filter: blur(18px);
+}
+.lv-transition-desk {
+  --portal-x: 22%;
+  --portal-y: 50%;
+  --portal-glow: rgba(159, 100, 255, 0.32);
+}
+.lv-transition-fitness {
+  --portal-x: 80%;
+  --portal-y: 72%;
+  --portal-glow: rgba(60, 219, 190, 0.28);
+}
+.lv-transition-globe {
+  --portal-x: 76%;
+  --portal-y: 40%;
+  --portal-glow: rgba(72, 142, 255, 0.32);
+}
+.lv-transition-trophies {
+  --portal-x: 83%;
+  --portal-y: 24%;
+  --portal-glow: rgba(242, 173, 89, 0.3);
+}
+.lv-transition-study {
+  --portal-x: 10%;
+  --portal-y: 27%;
+  --portal-glow: rgba(122, 181, 255, 0.34);
+}
+.lv-portal-window {
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+  box-shadow:
+    0 45px 140px #000d,
+    0 0 94px rgba(139, 92, 246, 0.18);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-cinematic-overlay {
+    backdrop-filter: none;
+  }
+  .lv-portal-window {
+    will-change: auto;
+  }
+}
+
+/* Chapter V.2: The clicked room object is the origin of the portal sheet. */
+.lv-shared-portal {
+  --portal-x: 50%;
+  --portal-y: 50%;
+}
+.lv-shared-portal::before {
+  background: radial-gradient(
+    circle 240px at var(--lv-origin-x) var(--lv-origin-y),
+    var(--portal-glow, rgba(146, 103, 245, 0.4)),
+    transparent
+  );
+  inset: 0;
+  position: fixed;
+  filter: blur(35px);
+}
+.lv-shared-portal .lv-portal-window {
+  isolation: isolate;
+  transform-origin: center center;
+}
+.lv-portal-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    var(--portal-glow, rgba(159, 100, 255, 0.4)),
+    transparent 65%
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-portal-flash {
+    display: none;
+  }
+}
+
+/* Chapter V.3: visual portal originates at the actual tapped hotspot. */
+.lv-energy-field {
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  pointer-events: none;
+  overflow: hidden;
+  --portal-glow: rgba(160, 116, 255, 0.55);
+}
+.lv-energy-field.lv-transition-fitness {
+  --portal-glow: rgba(66, 222, 200, 0.53);
+}
+.lv-energy-field.lv-transition-globe {
+  --portal-glow: rgba(87, 165, 255, 0.55);
+}
+.lv-energy-field.lv-transition-trophies {
+  --portal-glow: rgba(255, 193, 92, 0.57);
+}
+.lv-energy-field.lv-transition-study {
+  --portal-glow: rgba(122, 190, 255, 0.56);
+}
+.lv-energy-anchor {
+  position: absolute;
+  left: var(--energy-x);
+  top: var(--energy-y);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+}
+.lv-energy-halo,
+.lv-energy-ring,
+.lv-energy-spark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+.lv-energy-halo {
+  width: min(64vw, 540px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--portal-glow) 0%, transparent 68%);
+  filter: blur(24px);
+}
+.lv-energy-ring {
+  width: min(40vw, 340px);
+  aspect-ratio: 1;
+  border: 2px solid var(--portal-glow);
+  box-shadow:
+    0 0 28px var(--portal-glow),
+    inset 0 0 30px var(--portal-glow);
+}
+.lv-energy-spark {
+  width: 96px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, white 0%, var(--portal-glow) 23%, transparent 75%);
+  filter: blur(5px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-energy-field {
+    display: none;
+  }
+}
+/* Chapter IX: wide analytics view, sharing existing profile overlay behavior */
+.lv-profile-window.lv-insights-modal {
+  width: min(1200px, 96vw);
+  max-width: 1200px;
 }

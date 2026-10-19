@@ -1,0 +1,780 @@
+.lv-arcade {
+  color: #ecebff;
+  padding: 22px;
+  max-width: 1260px;
+  margin: auto;
+}
+.lv-arcade * {
+  box-sizing: border-box;
+}
+.lv-arcade-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+.lv-arcade-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c6b3ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.lv-arcade h2 {
+  margin: 10px 0 6px;
+  font-size: clamp(24px, 2.4vw, 34px);
+}
+.lv-arcade p {
+  margin: 0;
+  color: #bdbdd4;
+  line-height: 1.55;
+}
+.lv-arcade-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lv-arcade-tabs button,
+.lv-arcade-inline-stats button,
+.lv-arcade-game button,
+.lv-arcade-action {
+  border: 1px solid #5f5a8b;
+  background: #262744;
+  color: #f7f4ff;
+  border-radius: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+.lv-arcade-tabs button.selected,
+.lv-arcade-inline-stats button:hover,
+.lv-arcade-game button:hover,
+.lv-arcade-action:hover {
+  background: #5f4ba2;
+  border-color: #bca9ff;
+  transform: translateY(-1px);
+}
+
+.lv-arcade-home {
+  display: grid;
+  gap: 20px;
+}
+.lv-arcade-launcher-hero {
+  min-height: 350px;
+  border-radius: 30px;
+  border: 1px solid #ffffff18;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1.02fr 0.88fr;
+  align-items: stretch;
+  box-shadow: 0 24px 48px rgba(10, 8, 28, 0.32);
+}
+.lv-arcade-launcher-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    transparent 28%,
+    rgba(255, 255, 255, 0.03) 60%,
+    transparent
+  );
+}
+.lv-arcade-launcher-copy,
+.lv-arcade-launcher-side {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+}
+.lv-arcade-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(137, 107, 255, 0.18);
+  border: 1px solid rgba(202, 185, 255, 0.26);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #ece0ff;
+}
+.lv-arcade-launcher-copy h3 {
+  margin: 18px 0 12px;
+  font-size: clamp(34px, 3.2vw, 52px);
+  line-height: 1.02;
+  max-width: 11ch;
+  text-wrap: balance;
+}
+.lv-arcade-launcher-copy p {
+  max-width: 53ch;
+  color: #d4d4e6;
+  font-size: 15px;
+}
+.lv-arcade-quick-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.lv-arcade-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26, 29, 50, 0.82);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(11, 10, 22, 0.18);
+}
+.lv-arcade-action.primary {
+  background: linear-gradient(135deg, #7558d9, #4f79ff);
+  border-color: #a994ff;
+}
+.lv-arcade-launcher-side {
+  display: grid;
+  align-content: end;
+  gap: 14px;
+}
+.lv-arcade-launcher-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.lv-arcade-launcher-meta article,
+.lv-arcade-hero-note {
+  background: rgba(9, 11, 22, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid #ffffff14;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.lv-arcade-launcher-meta article {
+  padding: 16px;
+  display: grid;
+  gap: 6px;
+}
+.lv-arcade-launcher-meta span {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #bba8ff;
+}
+.lv-arcade-launcher-meta strong {
+  font-size: 30px;
+  line-height: 1.05;
+}
+.lv-arcade-hero-note {
+  padding: 16px 18px;
+}
+.lv-arcade-hero-note strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+.lv-arcade-hero-note p {
+  font-size: 13px;
+  color: #c8cae4;
+}
+
+.lv-arcade-section-block {
+  display: grid;
+  gap: 14px;
+}
+.lv-arcade-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+.lv-arcade-section-head span {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #bba8ff;
+  margin-bottom: 6px;
+}
+.lv-arcade-section-head h4 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.1;
+}
+.lv-arcade-section-head p {
+  max-width: 44ch;
+  font-size: 14px;
+  text-align: right;
+}
+
+.lv-arcade-library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.lv-arcade-showcase-card {
+  padding: 0;
+  border: 1px solid #ffffff18;
+  border-radius: 26px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1b1f38, #151829);
+  color: #f8f6ff;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 280px auto;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 14px 28px rgba(13, 10, 27, 0.22);
+}
+.lv-arcade-showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: #bca9ff;
+  box-shadow: 0 24px 44px rgba(24, 16, 51, 0.38);
+}
+.lv-arcade-showcase-card.memory {
+  background: linear-gradient(160deg, #231d3d, #131722);
+}
+.lv-arcade-showcase-card.snake {
+  background: linear-gradient(160deg, #1a243b, #131722);
+}
+.lv-arcade-showcase-art {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.lv-arcade-showcase-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 10, 19, 0.05) 0%,
+    rgba(9, 10, 19, 0.15) 40%,
+    rgba(9, 10, 19, 0.68) 100%
+  );
+}
+.lv-arcade-cover-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(14, 16, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ece0ff;
+  backdrop-filter: blur(4px);
+}
+.lv-arcade-showcase-overlay {
+  position: absolute;
+  inset: auto 14px 14px 14px;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.lv-arcade-showcase-stat {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(9, 11, 22, 0.66);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-width: 160px;
+}
+.lv-arcade-showcase-stat span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #c5b7ff;
+  margin-bottom: 5px;
+}
+.lv-arcade-showcase-stat strong {
+  font-size: 22px;
+  line-height: 1.1;
+}
+.lv-arcade-showcase-body {
+  padding: 18px;
+  display: grid;
+  gap: 18px;
+}
+.lv-arcade-showcase-copy h5 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.02;
+}
+.lv-arcade-showcase-copy p {
+  font-size: 14px;
+  color: #c4c7db;
+  max-width: 48ch;
+}
+.lv-arcade-showcase-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+}
+.lv-arcade-tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lv-arcade-tag-row span {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #14192b;
+  border: 1px solid #ffffff12;
+  font-size: 12px;
+  color: #c7cae3;
+}
+.lv-arcade-playline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbb8ff;
+  font-weight: 700;
+}
+.lv-arcade-playline b {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.lv-arcade-shelf-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 16px;
+}
+.lv-arcade-panel,
+.lv-arcade-game,
+.lv-snake-card {
+  background: linear-gradient(155deg, #23263f, #191c33);
+  border: 1px solid #ffffff18;
+  border-radius: 20px;
+}
+.lv-arcade-panel {
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(13, 10, 27, 0.16);
+}
+.lv-arcade-panel > header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #d3c4ff;
+}
+.lv-arcade-panel h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.lv-arcade-record-row {
+  display: grid;
+  gap: 10px;
+}
+.lv-arcade-record-row article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #17192d;
+  border: 1px solid #ffffff10;
+}
+.lv-arcade-record-row span {
+  font-size: 13px;
+  color: #b8b9d5;
+}
+.lv-arcade-record-row strong {
+  font-size: 22px;
+  text-align: right;
+}
+.lv-arcade-badge-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.lv-arcade-badge-strip article {
+  padding: 14px 15px;
+  border-radius: 14px;
+  border: 1px dashed #5b587e;
+  background: #17192d;
+  display: grid;
+  gap: 4px;
+  min-height: 88px;
+  align-content: start;
+  transition:
+    transform 0.18s,
+    border-color 0.18s;
+}
+.lv-arcade-badge-strip article.unlocked {
+  border-style: solid;
+  border-color: #b89cff;
+  background: linear-gradient(150deg, #382f60, #211f37);
+}
+.lv-arcade-badge-strip article:hover {
+  transform: translateY(-1px);
+}
+.lv-arcade-badge-strip strong {
+  font-size: 14px;
+}
+.lv-arcade-badge-strip span {
+  color: #aaadc8;
+  font-size: 12px;
+}
+
+.lv-arcade-game {
+  padding: 22px;
+}
+.lv-arcade-game-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.lv-arcade-game-head h3 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+.lv-arcade-inline-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lv-arcade-inline-stats span {
+  background: #17192d;
+  border: 1px solid #ffffff14;
+  padding: 10px 12px;
+  border-radius: 11px;
+  color: #b8bbd4;
+  font-size: 12px;
+}
+.lv-arcade-inline-stats strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+}
+.lv-memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.lv-memory-card {
+  aspect-ratio: 1;
+  border-radius: 18px;
+  border: 1px solid #ffffff12;
+  background: transparent;
+  position: relative;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s,
+    box-shadow 0.18s;
+  border: 0;
+  padding: 0;
+}
+.lv-memory-card.revealed {
+  transform: rotateY(180deg);
+}
+.lv-memory-card.matched {
+  box-shadow:
+    0 0 0 2px #b39bff44,
+    0 16px 34px #8c65ff26;
+}
+.lv-memory-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  backface-visibility: hidden;
+  font-size: 34px;
+}
+.lv-memory-back {
+  background: linear-gradient(155deg, #312a57, #22253f);
+  border: 1px solid #7e6eb8;
+}
+.lv-memory-front {
+  background: linear-gradient(155deg, #f0e7ff, #e6dcff);
+  color: #251d44;
+  transform: rotateY(180deg);
+  border: 1px solid #d5c1ff;
+}
+.lv-arcade-footer-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #b7bbd6;
+  font-size: 12px;
+  margin-top: 15px;
+}
+.lv-snake-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 18px;
+  align-items: start;
+}
+.lv-snake-board {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  background: #15172b;
+  border: 1px solid #ffffff12;
+  border-radius: 20px;
+  padding: 16px;
+  max-width: 640px;
+}
+.lv-snake-cell {
+  aspect-ratio: 1;
+  border-radius: 9px;
+  background: #232740;
+  border: 1px solid #ffffff08;
+}
+.lv-snake-cell.snake {
+  background: linear-gradient(160deg, #8de0f6, #4ca6bd);
+}
+.lv-snake-cell.head {
+  background: linear-gradient(160deg, #c9f2ff, #77d2ea);
+  box-shadow: 0 0 0 1px #d9fbff55;
+}
+.lv-snake-cell.food {
+  background: linear-gradient(160deg, #ffbf93, #ff7d79);
+}
+.lv-snake-side {
+  display: grid;
+  gap: 12px;
+}
+.lv-snake-card {
+  padding: 16px;
+}
+.lv-snake-card strong {
+  display: block;
+  margin-bottom: 8px;
+}
+.lv-snake-card p,
+.lv-snake-card li {
+  font-size: 12px;
+  color: #b8bbd5;
+  line-height: 1.6;
+}
+.lv-snake-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 980px) {
+  .lv-arcade-topbar,
+  .lv-arcade-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lv-arcade-launcher-hero,
+  .lv-arcade-library-grid,
+  .lv-arcade-shelf-grid,
+  .lv-snake-layout {
+    grid-template-columns: 1fr;
+  }
+  .lv-arcade-launcher-copy h3 {
+    max-width: none;
+  }
+  .lv-arcade-launcher-side {
+    padding-top: 0;
+  }
+  .lv-arcade-launcher-meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lv-arcade-section-head p {
+    text-align: left;
+    max-width: none;
+  }
+  .lv-arcade-badge-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .lv-snake-board {
+    max-width: none;
+  }
+}
+@media (max-width: 720px) {
+  .lv-arcade {
+    padding: 14px;
+  }
+  .lv-arcade-launcher-hero {
+    min-height: auto;
+  }
+  .lv-arcade-launcher-copy,
+  .lv-arcade-launcher-side {
+    padding: 20px;
+  }
+  .lv-arcade-launcher-meta {
+    grid-template-columns: 1fr;
+  }
+  .lv-arcade-showcase-card {
+    grid-template-rows: 220px auto;
+  }
+  .lv-memory-board {
+    gap: 8px;
+  }
+  .lv-memory-face {
+    font-size: 28px;
+  }
+  .lv-arcade-badge-strip {
+    grid-template-columns: 1fr;
+  }
+  .lv-arcade-tabs {
+    width: 100%;
+  }
+  .lv-arcade-tabs button {
+    flex: 1;
+  }
+  .lv-arcade-showcase-copy h5 {
+    font-size: 28px;
+  }
+  .lv-arcade-showcase-foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lv-arcade-playline {
+    align-self: flex-end;
+  }
+}
+
+/* Chapter XIII: viewport-fit gameplay. Keep both boards fully visible at
+   100% browser zoom within the existing fixed-height LifeVerse hub. */
+.lv-arcade-game {
+  min-width: 0;
+  padding: clamp(12px, 2vh, 20px);
+}
+.lv-arcade-game-head {
+  margin-bottom: 12px;
+}
+.lv-arcade-game-head h3 {
+  font-size: 22px;
+}
+.lv-arcade-game-head p {
+  font-size: 13px;
+}
+.lv-memory-board {
+  width: min(100%, max(210px, min(380px, calc(100dvh - 550px))));
+  margin-inline: auto;
+  gap: clamp(5px, 0.9vh, 9px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.lv-memory-card {
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+}
+.lv-memory-face {
+  border-radius: 12px;
+  font-size: clamp(20px, 3.5vh, 32px);
+}
+.lv-snake-layout {
+  grid-template-columns: minmax(0, auto) minmax(180px, 230px);
+  justify-content: center;
+  align-items: start;
+  gap: 16px;
+}
+.lv-snake-board {
+  width: min(100%, max(210px, min(380px, calc(100dvh - 550px))));
+  max-width: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(2px, 0.45vh, 4px);
+  padding: clamp(7px, 1vh, 12px);
+  border-radius: 14px;
+}
+.lv-snake-cell {
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+}
+.lv-snake-side {
+  width: 100%;
+}
+@media (max-width: 720px) {
+  .lv-snake-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .lv-snake-side {
+    max-width: 420px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-memory-board,
+  .lv-snake-board {
+    width: min(100%, max(200px, min(330px, calc(100dvh - 470px))));
+  }
+}
+@media (max-height: 700px) and (min-width: 721px) {
+  .lv-arcade-game-head {
+    margin-bottom: 8px;
+  }
+  .lv-arcade-game {
+    padding: 12px;
+  }
+}
+
+/* XIII.4: stable, legible playfield dimensions. Never let the auto grid track
+   collapse the Snake board to its min-content width. */
+.lv-snake-layout {
+  width: 100%;
+  grid-template-columns: minmax(0, 360px) minmax(0, 210px);
+  justify-content: center;
+  gap: 18px;
+}
+.lv-snake-board {
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  justify-self: center;
+  align-self: start;
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  gap: 4px;
+  padding: 10px;
+}
+.lv-snake-cell {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+.lv-memory-board {
+  width: min(100%, 360px);
+}
+@media (max-width: 720px) {
+  .lv-snake-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lv-snake-board {
+    width: min(100%, 360px);
+  }
+  .lv-memory-board {
+    width: min(100%, 360px);
+  }
+}
+@media (max-height: 730px) {
+  .lv-snake-layout {
+    grid-template-columns: minmax(0, 310px) minmax(0, 210px);
+  }
+  .lv-snake-board {
+    width: min(100%, 310px);
+  }
+  .lv-memory-board {
+    width: min(100%, 310px);
+  }
+}

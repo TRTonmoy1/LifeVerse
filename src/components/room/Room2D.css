@@ -1,13 +1,414 @@
-.lv-room-viewport { width:100%;height:100%;position:relative;overflow:hidden;background:#14122b; }
-.lv-room-scene { position:absolute;inset:0;width:100%;height:100%;will-change:transform; }
-.lv-room-art { display:block;width:100%;height:100%;object-fit:fill;user-select:none;pointer-events:none; }
-.lv-room-hotspot { position:absolute;transform:translate(-50%,-50%);border:1px solid transparent;background:transparent;border-radius:18px;cursor:pointer;padding:0;transition:background .2s,border-color .2s,box-shadow .2s;z-index:10; }
-.lv-room-hotspot:hover,.lv-room-hotspot:focus-visible { background:rgba(167,139,250,.13);border-color:rgba(221,200,255,.8);box-shadow:0 0 30px rgba(153,105,255,.4),inset 0 0 25px rgba(153,105,255,.12);outline:none; }
-.lv-room-hotspot:disabled { pointer-events:none; }
-.lv-room-tooltip { position:absolute;bottom:calc(100% + 8px);left:50%;transform:translate(-50%,5px);background:rgba(17,15,35,.94);color:white;border:1px solid #8b74bd;border-radius:10px;padding:7px 11px;font-size:clamp(11px,1vw,14px);font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s; }
-.lv-room-hotspot:hover .lv-room-tooltip,.lv-room-hotspot:focus-visible .lv-room-tooltip { opacity:1;transform:translate(-50%,0); }
-.lv-character-layer { position:absolute;left:47%;top:94%;width:6%;transform:translate(-50%,-100%);z-index:5;pointer-events:none;filter:drop-shadow(0 12px 10px rgba(0,0,0,.5)); }
-.lv-character-animated,.lv-character-animated svg,.lv-avatar-image { display:block;width:100%;height:auto; }
-.lv-avatar-studio-launch { position:absolute;z-index:15;top:14px;left:14px;background:rgba(25,18,49,.86);border:1px solid #a78bfa;border-radius:12px;padding:10px 14px;color:white;font-weight:700;cursor:pointer;box-shadow:0 8px 25px #0006; }
-.lv-avatar-studio-launch:hover { background:#50358a; }
-@media (prefers-reduced-motion:reduce) { .lv-room-hotspot,.lv-room-tooltip { transition:none; } }
+.lv-room-viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #14122b;
+}
+.lv-room-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+.lv-scene-image {
+  position: absolute;
+  overflow: visible;
+}
+.lv-room-lens {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, transparent 32%, rgba(8, 7, 27, 0.34) 100%);
+}
+.lv-room-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+.lv-room-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 18px;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+  z-index: 10;
+}
+.lv-room-hotspot:hover,
+.lv-room-hotspot:focus-visible {
+  background: rgba(167, 139, 250, 0.07);
+  border-color: rgba(221, 200, 255, 0.55);
+  box-shadow:
+    0 0 15px rgba(153, 105, 255, 0.2),
+    inset 0 0 12px rgba(153, 105, 255, 0.07);
+  outline: none;
+}
+.lv-room-hotspot-arcade {
+  border-radius: 14px;
+}
+.lv-room-hotspot:disabled {
+  pointer-events: none;
+}
+.lv-room-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translate(-50%, 5px) rotate(calc(-1 * var(--hotspot-rotation, 0deg)));
+  background: rgba(17, 15, 35, 0.94);
+  color: white;
+  border: 1px solid rgba(167, 139, 250, 0.55);
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.lv-room-hotspot:hover .lv-room-tooltip,
+.lv-room-hotspot:focus-visible .lv-room-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(calc(-1 * var(--hotspot-rotation, 0deg)));
+}
+.lv-character-layer {
+  position: absolute;
+  left: 70%;
+  top: 70%;
+  width: 15%;
+  transform: translate(-50%, -100%);
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.5));
+}
+.lv-character-animated,
+.lv-character-animated svg,
+.lv-avatar-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lv-avatar-studio-launch {
+  position: absolute;
+  z-index: 15;
+  top: 14px;
+  left: 14px;
+  background: rgba(25, 18, 49, 0.86);
+  border: 1px solid #a78bfa;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px #0006;
+}
+.lv-avatar-studio-launch:hover {
+  background: #50358a;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-room-hotspot,
+  .lv-room-tooltip {
+    transition: none;
+  }
+}
+
+/* Chapter X.1 — a single seamless illustrated room background.
+   No mirrored side panels, CSS furniture, or horizontal stretching. */
+.lv-room-viewport {
+  background: #131128;
+}
+.lv-scene-image {
+  overflow: visible;
+}
+.lv-room-art {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.lv-character-layer {
+  left: 50.5%;
+  top: 79%;
+  width: 6%;
+}
+
+/* Avatar refinement: better grounded in the room with subtler motion,
+   slightly improved scale, and a dedicated floor shadow on the carpet. */
+.lv-character-layer {
+  left: 50.1%;
+  top: 74%;
+  width: 7.5%;
+  transform: translate(-50%, -100%);
+  z-index: 5;
+  isolation: isolate;
+  filter: drop-shadow(0 12px 12px rgba(8, 7, 20, 0.34)) drop-shadow(0 2px 3px rgba(8, 7, 20, 0.2))
+    drop-shadow(-1px 0 2px rgba(88, 128, 248, 0.11)) drop-shadow(2px 0 3px rgba(255, 165, 74, 0.14));
+}
+.lv-character-layer::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1.2%;
+  width: 78%;
+  height: 6.8%;
+  transform: translate(-50%, 52%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(8, 7, 20, 0.42) 0%,
+    rgba(8, 7, 20, 0.24) 42%,
+    rgba(8, 7, 20, 0) 74%
+  );
+  filter: blur(7px);
+  z-index: -1;
+  pointer-events: none;
+}
+.lv-character-animated {
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.lv-character-layer .lv-detailed-avatar img {
+  image-rendering: auto;
+}
+
+/* Discoverability: always-visible beacons, optional "show all" labels, first-visit hint. */
+.lv-room-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--badge-size, 42px);
+  height: var(--badge-size, 42px);
+  margin: calc(var(--badge-size, 42px) / -2) 0 0 calc(var(--badge-size, 42px) / -2);
+  pointer-events: none;
+  transform: rotate(calc(-1 * var(--hotspot-rotation, 0deg)));
+  transition: opacity 0.2s;
+}
+.lv-badge-core {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--badge-color);
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.28),
+    rgba(20, 16, 44, 0.94) 62%
+  );
+  border: 1.5px solid var(--badge-color);
+  box-shadow:
+    0 0 12px 2px color-mix(in srgb, var(--badge-color) 55%, transparent),
+    0 4px 10px rgba(0, 0, 0, 0.45);
+  animation:
+    lv-badge-float 3.2s ease-in-out infinite,
+    lv-badge-wave 9s ease-in-out infinite;
+  animation-delay: var(--badge-delay), var(--badge-delay);
+  transition: transform 0.2s;
+}
+.lv-badge-core svg {
+  width: 52%;
+  height: 52%;
+}
+.lv-badge-halo {
+  position: absolute;
+  inset: calc(var(--badge-size, 42px) * -0.17);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 55%,
+    var(--badge-color) 80%,
+    transparent 100%
+  );
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 64%, #000 70%, transparent 72%);
+  mask: radial-gradient(circle, transparent 62%, #000 64%, #000 70%, transparent 72%);
+  opacity: 0.85;
+  animation: lv-badge-spin 4s linear infinite;
+  animation-delay: var(--badge-delay);
+}
+.lv-badge-spark {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--badge-color);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0;
+  animation: lv-badge-twinkle 2.8s ease-in-out infinite;
+}
+.lv-badge-spark-a {
+  top: -9px;
+  right: -7px;
+  animation-delay: calc(var(--badge-delay) + 0.2s);
+}
+.lv-badge-spark-b {
+  bottom: -8px;
+  left: -8px;
+  width: 5px;
+  height: 5px;
+  animation-delay: calc(var(--badge-delay) + 1.4s);
+}
+@keyframes lv-badge-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes lv-badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes lv-badge-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(0.4) rotate(90deg);
+  }
+}
+/* A light wave sweeps across the badges in turn, so the eye is drawn to each one. */
+@keyframes lv-badge-wave {
+  0%,
+  86%,
+  100% {
+    filter: brightness(1);
+  }
+  92% {
+    filter: brightness(1.7) drop-shadow(0 0 8px var(--badge-color));
+  }
+}
+.lv-room-hotspot:hover .lv-badge-core,
+.lv-room-hotspot:focus-visible .lv-badge-core {
+  transform: scale(1.18);
+}
+.lv-room-hotspot:disabled .lv-room-badge {
+  opacity: 0;
+}
+.lv-room-controls {
+  position: absolute;
+  z-index: 15;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+}
+.lv-toggle-short {
+  display: none;
+}
+.lv-hotspot-toggle {
+  position: static;
+  background: rgba(25, 18, 49, 0.86);
+  border: 1px solid #a78bfa;
+  border-radius: 12px;
+  padding: 9px 13px;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px #0006;
+}
+.lv-hotspot-toggle:hover,
+.lv-hotspot-toggle[aria-pressed='true'] {
+  background: #50358a;
+}
+.lv-show-hotspots .lv-room-hotspot {
+  background: rgba(167, 139, 250, 0.07);
+  border-color: rgba(221, 200, 255, 0.55);
+  box-shadow: 0 0 15px rgba(153, 105, 255, 0.2);
+}
+.lv-show-hotspots .lv-room-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(calc(-1 * var(--hotspot-rotation, 0deg)));
+}
+.lv-room-hint {
+  position: absolute;
+  z-index: 15;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(17, 15, 35, 0.92);
+  color: #fff;
+  border: 1px solid rgba(167, 139, 250, 0.6);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 25px #0006;
+  pointer-events: none;
+  animation: lv-hint-bob 2.4s ease-in-out infinite;
+}
+@keyframes lv-hint-bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-badge-core,
+  .lv-badge-halo,
+  .lv-room-hint {
+    animation: none;
+  }
+  .lv-badge-spark {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
+/* Small screens: compact controls, smaller hint. Badges already scale with the room via --badge-size. */
+@media (max-width: 640px) {
+  .lv-room-controls {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+  .lv-hotspot-toggle {
+    padding: 6px 9px;
+    font-size: 11px;
+    border-radius: 10px;
+  }
+  .lv-toggle-long {
+    display: none;
+  }
+  .lv-toggle-short {
+    display: inline;
+  }
+  .lv-room-hint {
+    bottom: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .lv-room-tooltip {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}

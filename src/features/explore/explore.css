@@ -1,0 +1,1586 @@
+/* Chapter VI: a self-contained atlas skin. Existing room / hubs are untouched. */
+.lv-explore {
+  color: #f6f1ff;
+  padding-top: 24px;
+  padding-bottom: 18px;
+  --exp-muted: #a2a9c8;
+  --exp-line: #3b4567;
+  --exp-panel: #1d2540;
+}
+.lv-exp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(270px, 0.75fr);
+  position: relative;
+  overflow: hidden;
+  min-height: 255px;
+  border-radius: 23px;
+  border: 1px solid #53638d;
+  background:
+    radial-gradient(ellipse at 75% 45%, #3b548078, transparent 42%),
+    linear-gradient(117deg, #232b52, #19243f 66%, #141c36);
+  box-shadow:
+    inset 0 1px #b7c9ff10,
+    0 18px 45px #06091744;
+}
+.lv-exp-hero:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 14%, #fff 1px, transparent 2px),
+    radial-gradient(circle at 36% 80%, #ccdefe 1px, transparent 2px),
+    radial-gradient(circle at 86% 18%, #fff 1px, transparent 2px),
+    radial-gradient(circle at 63% 56%, #b5dbff 1px, transparent 2px);
+  background-size:
+    183px 126px,
+    247px 179px,
+    131px 212px,
+    203px 123px;
+}
+.lv-exp-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 4vw, 48px);
+}
+.lv-exp-kicker,
+.lv-exp-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 2.1px;
+  color: #a7d5fb;
+}
+.lv-exp-hero h2 {
+  font-size: clamp(34px, 4vw, 57px);
+  letter-spacing: -2.4px;
+  line-height: 1.08;
+  margin: 15px 0;
+}
+.lv-exp-hero h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #ffd6a3;
+  font-weight: 450;
+}
+.lv-exp-hero p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #bdcbe7;
+  max-width: 520px;
+  margin: 0;
+}
+.lv-exp-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 23px;
+}
+.lv-exp-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: linear-gradient(120deg, #d9c1ff, #a9bbff);
+  color: #17223f;
+  border: 0;
+  padding: 12px 17px;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 850;
+  transition:
+    filter 0.2s,
+    transform 0.2s;
+  box-shadow: 0 4px 17px #a5a7ff26;
+}
+.lv-exp-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.lv-exp-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.lv-exp-hero-link {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  color: #d7e5ff;
+  background: transparent;
+  border: 0;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 750;
+}
+.lv-exp-hero-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.lv-exp-hero-art {
+  position: relative;
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+}
+.lv-exp-globe {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  width: 183px;
+  height: 183px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 27% 20%, #94c9f24d, #294d78b8 38%, #101b37 71%);
+  box-shadow:
+    inset -20px -18px 33px #0b0e29d9,
+    inset 8px 7px 22px #87c4ff23,
+    0 0 70px #76a8ff3c;
+  border: 1px solid #6f99c07a;
+  transform: rotate(-16deg);
+}
+.lv-exp-globe svg {
+  width: 155px;
+  height: 155px;
+  color: #a8c9e8;
+  filter: drop-shadow(0 0 11px #89ceff55);
+}
+.lv-exp-orbit {
+  position: absolute;
+  width: 265px;
+  height: 125px;
+  border: 1px solid #bed7fc73;
+  border-radius: 50%;
+  transform: rotate(-27deg);
+  z-index: 2;
+  pointer-events: none;
+}
+.lv-exp-orbit-b {
+  width: 235px;
+  height: 228px;
+  border-color: #9bb2f133;
+  transform: rotate(30deg);
+}
+.lv-exp-float {
+  position: absolute;
+  color: #fff0c5;
+  font-size: 34px;
+  text-shadow: 0 0 26px #ffd68e;
+  z-index: 3;
+}
+.lv-exp-float-one {
+  top: 19%;
+  right: 25%;
+}
+.lv-exp-float-two {
+  bottom: 24%;
+  left: 17%;
+}
+.lv-exp-art-caption {
+  position: absolute;
+  bottom: 14px;
+  color: #b0bddd;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+}
+.lv-exp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 22px;
+}
+.lv-exp-stat {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  background: linear-gradient(130deg, #202941, #1b2139);
+  border: 1px solid #3d4867;
+  border-radius: 15px;
+  min-width: 0;
+}
+.lv-exp-stat > span {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #8298dc1d;
+  color: #a8c6ff;
+}
+.lv-exp-stat:nth-child(2) > span {
+  color: #efc3f6;
+  background: #e1a7ff17;
+}
+.lv-exp-stat:nth-child(3) > span {
+  color: #ffe0a8;
+  background: #ffc99315;
+}
+.lv-exp-stat:nth-child(4) > span {
+  color: #99e5cb;
+  background: #66dbb314;
+}
+.lv-exp-stat strong {
+  display: block;
+  font-size: 25px;
+  letter-spacing: -0.7px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.lv-exp-stat strong small {
+  font-size: 12px;
+  color: #a7b4d0;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.lv-exp-stat p {
+  margin: 2px 0 0;
+  color: #a4abc4;
+  font-size: 11px;
+}
+.lv-exp-navigation {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  gap: 5px;
+  padding: 5px;
+  background: #1c243f;
+  border: 1px solid #374566;
+  border-radius: 13px;
+  margin: 0 0 23px;
+}
+.lv-exp-navigation button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: #a7b1d1;
+  white-space: nowrap;
+  padding: 12px 19px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 10px;
+}
+.lv-exp-navigation button:hover {
+  color: #fff;
+}
+.lv-exp-navigation button.active {
+  background: linear-gradient(120deg, #384f75, #3e3a70);
+  color: #f6f4ff;
+  box-shadow: 0 5px 15px #10162e50;
+}
+.lv-exp-view {
+  min-width: 0;
+}
+.lv-exp-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 19px;
+}
+.lv-exp-section-heading h3 {
+  font-size: clamp(22px, 2.3vw, 29px);
+  margin: 6px 0 8px;
+  letter-spacing: -0.9px;
+}
+.lv-exp-section-heading h3 span {
+  color: #e4bbf5;
+}
+.lv-exp-section-heading p {
+  font-size: 12px;
+  color: #a6b1cf;
+  margin: 0;
+  line-height: 1.6;
+}
+.lv-exp-section-heading.compact {
+  margin: 0 0 15px;
+}
+.lv-exp-section-heading.compact h3 {
+  font-size: 20px;
+}
+.lv-exp-count-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #bde8e1;
+  background: #213e48;
+  border: 1px solid #3b6b72;
+  border-radius: 99px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 11px;
+}
+.lv-exp-led {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #83edd4;
+  box-shadow: 0 0 10px #7ef3d6;
+}
+.lv-exp-atlas-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.lv-exp-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1c2540;
+  border: 1px solid #465573;
+  border-radius: 12px;
+  padding: 0 14px;
+  min-height: 46px;
+  width: 270px;
+  max-width: 100%;
+  color: #a4b8d7;
+}
+.lv-exp-search:focus-within {
+  border-color: #b1aeff;
+}
+.lv-exp-search input {
+  min-width: 0;
+  flex: 1;
+  color: #f5f5ff;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+.lv-exp-search input::placeholder {
+  color: #8392ae;
+}
+.lv-exp-search button {
+  border: 0;
+  background: transparent;
+  color: #d2d9ff;
+  font-size: 20px;
+}
+.lv-exp-region-list {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 3px;
+}
+.lv-exp-region-list button {
+  padding: 10px 13px;
+  border: 1px solid #39425e;
+  background: #242c47;
+  border-radius: 8px;
+  color: #b1bad3;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 750;
+}
+.lv-exp-region-list button:hover {
+  border-color: #7e94bb;
+  color: #fff;
+}
+.lv-exp-region-list button.active {
+  color: #fcf7ff;
+  background: #4c456f;
+  border-color: #8173b0;
+}
+.lv-exp-atlas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(290px, 0.83fr);
+  gap: 15px;
+  align-items: start;
+}
+.lv-exp-map-column {
+  min-width: 0;
+}
+.lv-exp-map-card {
+  border-radius: 18px;
+  border: 1px solid #465578;
+  background: linear-gradient(160deg, #192640, #111c32);
+  overflow: hidden;
+  box-shadow: 0 17px 33px #090f2340;
+}
+.lv-exp-map-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #344766;
+}
+.lv-exp-map-top strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.lv-exp-map-top .lv-exp-overline {
+  font-size: 9px;
+}
+.lv-exp-map-zoom {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.lv-exp-map-zoom button {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  border: 1px solid #506181;
+  color: #d3e0ff;
+  background: #263653;
+}
+.lv-exp-map-zoom button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.lv-exp-map-zoom > span {
+  font-size: 10px;
+  color: #b3c0db;
+  width: 37px;
+  text-align: center;
+}
+.lv-exp-map-canvas {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+.lv-exp-map-svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1080 / 480;
+  background: #101b33;
+}
+.lv-exp-gridline {
+  stroke: #a7c8ed;
+  stroke-width: 0.75;
+  stroke-dasharray: 3 8;
+  opacity: 0.13;
+  pointer-events: none;
+}
+.lv-exp-land {
+  fill: #334d67;
+  stroke: #8aa6bf;
+  stroke-width: 0.9;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transition:
+    fill 0.18s,
+    opacity 0.18s,
+    stroke 0.18s;
+  vector-effect: non-scaling-stroke;
+  outline: none;
+}
+.lv-exp-land:hover,
+.lv-exp-land:focus-visible {
+  fill: #6d9cb5;
+  stroke: #f1e7c5;
+  stroke-width: 2;
+  opacity: 1;
+}
+.lv-exp-land.is-discovered {
+  fill: #3f8b89;
+  stroke: #a0cecd;
+}
+.lv-exp-land.is-selected {
+  fill: #f3b981;
+  stroke: #ffe3b1;
+  stroke-width: 2.5;
+  opacity: 1;
+}
+.lv-exp-land.is-muted:not(.is-selected) {
+  opacity: 0.24;
+}
+.lv-exp-map-compass {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  color: #b3c5e6;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.lv-exp-map-compass span {
+  font-size: 9px;
+  font-weight: 800;
+}
+.lv-exp-map-foot {
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #8598bc;
+  font-size: 10px;
+}
+.lv-exp-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #a7b6cc;
+}
+.lv-exp-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lv-exp-legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #53748a;
+}
+.lv-exp-legend i.seen {
+  background: #56b7ab;
+}
+.lv-exp-legend i.chosen {
+  background: #f8c28b;
+}
+.lv-exp-search-results {
+  margin-top: 14px;
+  border-radius: 15px;
+  border: 1px solid #3c4968;
+  background: #1b243d;
+  padding: 15px;
+}
+.lv-exp-result-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+.lv-exp-result-heading strong {
+  font-size: 13px;
+}
+.lv-exp-result-heading small {
+  font-size: 10px;
+  color: #94a6c2;
+}
+.lv-exp-country-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  max-height: 210px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.lv-exp-country-list button {
+  border: 1px solid #3c4a65;
+  color: #f1f2ff;
+  background: #25304a;
+  border-radius: 9px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 9px;
+  text-align: left;
+  min-width: 0;
+}
+.lv-exp-country-list button:hover,
+.lv-exp-country-list button.active {
+  background: #3c4766;
+  border-color: #a899da;
+}
+.lv-exp-country-list button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 750;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lv-exp-country-list button small {
+  display: block;
+  margin-top: 3px;
+  color: #a1aecb;
+  font-size: 9px;
+  font-weight: 500;
+}
+.lv-exp-country-list button svg {
+  flex-shrink: 0;
+  color: #97dfd2;
+}
+.lv-exp-list-flag {
+  font-size: 23px;
+}
+.lv-exp-no-results {
+  padding: 25px;
+  font-size: 12px;
+  color: #aeb7d0;
+  text-align: center;
+}
+.lv-exp-passport {
+  position: relative;
+  border: 1px solid #5e5b80;
+  border-radius: 18px;
+  padding: 22px;
+  background:
+    radial-gradient(ellipse at 50% -5%, #48507d50, transparent 43%),
+    linear-gradient(150deg, #282841, #1b223a);
+  min-width: 0;
+  box-shadow: inset 0 1px #e8d5ff10;
+}
+.lv-exp-passport-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.lv-exp-passport-top .lv-exp-overline {
+  font-size: 9px;
+  color: #e5cdaa;
+  letter-spacing: 1.5px;
+}
+.lv-exp-passport-state {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f4dcae;
+  font-size: 9px;
+  border-radius: 30px;
+  background: #6e5c423b;
+  border: 1px solid #aa8f5b4a;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+.lv-exp-passport-state.seen {
+  color: #b2f4d9;
+  border-color: #5e9c84;
+  background: #32685640;
+}
+.lv-exp-passport-flag {
+  font-size: 78px;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 9px;
+  filter: drop-shadow(0 10px 15px #04071344);
+}
+.lv-exp-passport h3 {
+  font-size: 27px;
+  line-height: 1.13;
+  letter-spacing: -0.8px;
+  text-align: center;
+  margin: 4px 0 8px;
+}
+.lv-exp-passport-region {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #bcc9dd;
+  font-size: 12px;
+  margin: 0;
+}
+.lv-exp-passport-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #807d9e, transparent);
+  margin: 23px 0;
+}
+.lv-exp-passport-facts {
+  display: grid;
+  gap: 17px;
+}
+.lv-exp-passport-facts div {
+  display: grid;
+  gap: 7px;
+}
+.lv-exp-passport-facts span {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  color: #9faec9;
+  font-weight: 850;
+}
+.lv-exp-passport-facts strong {
+  font-size: 14px;
+  color: #f2f5ff;
+}
+.lv-exp-fieldnote {
+  border: 1px solid #55577a;
+  background: #ffffff07;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.lv-exp-fieldnote > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #f2d4ad;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+}
+.lv-exp-fieldnote p {
+  color: #bec7de;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 10px 0 0;
+}
+.lv-exp-discover {
+  width: 100%;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 11px;
+  padding: 14px 11px;
+  background: linear-gradient(120deg, #f1ce9c, #f2b5a1);
+  color: #2e2740;
+  font-size: 12px;
+  font-weight: 900;
+}
+.lv-exp-discover b {
+  font-size: 10px;
+  border-radius: 6px;
+  background: #ffffff81;
+  padding: 4px;
+}
+.lv-exp-discover:hover:not(:disabled) {
+  filter: brightness(1.07);
+}
+.lv-exp-discover.saved {
+  background: #2f615b;
+  color: #baf2dd;
+  border: 1px solid #59aa92;
+  cursor: default;
+}
+.lv-exp-passport-hint {
+  font-size: 10px;
+  color: #a1a7c2;
+  line-height: 1.45;
+  text-align: center;
+  margin: 11px 0 21px;
+}
+.lv-exp-passport-page {
+  border-top: 1px dashed #5c5977;
+  padding-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  color: #a8a6c8;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.lv-exp-passport-page strong {
+  color: #e6c7a2;
+}
+.lv-exp-featured {
+  margin-top: 21px;
+}
+.lv-exp-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.lv-exp-featured-grid button {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  border-radius: 13px;
+  border: 1px solid #454967;
+  background: linear-gradient(120deg, #252943, #20253f);
+  padding: 13px;
+  color: #f3f1ff;
+  text-align: left;
+}
+.lv-exp-featured-grid button:hover {
+  border-color: #9c9bd6;
+  background: #343b5a;
+}
+.lv-exp-featured-grid button > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+.lv-exp-featured-grid strong {
+  font-size: 12px;
+  display: block;
+}
+.lv-exp-featured-grid small {
+  display: block;
+  margin-top: 5px;
+  font-size: 9px;
+  color: #9daac7;
+}
+.lv-exp-featured-grid svg {
+  color: #c2b5eb;
+}
+.lv-exp-feature-flag {
+  font-size: 29px;
+}
+.lv-exp-expeditions-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border: 1px solid #647ca0;
+  border-radius: 17px;
+  padding: 21px 25px;
+  background: linear-gradient(108deg, #2c4261, #222d4d);
+  margin-bottom: 17px;
+}
+.lv-exp-expeditions-intro > div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.lv-exp-expeditions-intro svg {
+  color: #b5d8ed;
+  flex-shrink: 0;
+}
+.lv-exp-expeditions-intro span {
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  color: #a7d8e9;
+}
+.lv-exp-expeditions-intro h4 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+.lv-exp-expeditions-intro p {
+  margin: 0;
+  color: #bbc7dc;
+  font-size: 11px;
+}
+.lv-exp-expeditions-intro > strong {
+  white-space: nowrap;
+  font-size: 22px;
+  color: #c9f3e9;
+}
+.lv-exp-expeditions-intro > strong small {
+  display: block;
+  font-size: 9px;
+  text-align: right;
+  color: #aac4cf;
+  font-weight: 600;
+  margin-top: 3px;
+}
+.lv-exp-expedition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.lv-exp-expedition-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background:
+    radial-gradient(
+      ellipse at top left,
+      color-mix(in srgb, var(--lv-region-accent) 14%, transparent),
+      transparent 65%
+    ),
+    #1e263f;
+  border: 1px solid #43516e;
+  padding: 20px;
+  border-radius: 16px;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+.lv-exp-expedition-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #91a3c2;
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  font-weight: 850;
+}
+.lv-exp-expedition-top > span:last-child {
+  color: #d5bf9e;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0;
+}
+.lv-exp-expedition-top .done {
+  color: #99ebcb !important;
+}
+.lv-exp-expedition-emblem {
+  border-radius: 15px;
+  width: 57px;
+  height: 57px;
+  background: color-mix(in srgb, var(--lv-region-accent) 23%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lv-region-accent) 35%, transparent);
+  display: grid;
+  place-items: center;
+  margin: 9px 0;
+  color: var(--lv-region-accent);
+}
+.lv-exp-expedition-tag {
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  color: var(--lv-region-accent);
+  font-weight: 850;
+}
+.lv-exp-expedition-card h4 {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+.lv-exp-expedition-card p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #aab7d1;
+  min-height: 33px;
+  margin: 0;
+}
+.lv-exp-expedition-meter {
+  margin-top: auto;
+  padding-top: 16px;
+}
+.lv-exp-expedition-meter > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  color: #b3bed3;
+}
+.lv-exp-expedition-meter strong {
+  color: #ebebff;
+}
+.lv-exp-expedition-track {
+  height: 6px;
+  border-radius: 10px;
+  background: #11182e;
+  overflow: hidden;
+  margin-top: 10px;
+  border: 1px solid #ffffff0c;
+}
+.lv-exp-expedition-track > span {
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--lv-region-accent, #a8c6ed);
+  transition: width 0.25s;
+}
+.lv-exp-expedition-card > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #53617d;
+  border-radius: 10px;
+  background: #303957;
+  color: #e8eaff;
+  padding: 11px 12px;
+  font-size: 11px;
+  font-weight: 850;
+  margin-top: 11px;
+}
+.lv-exp-expedition-card > button:hover {
+  background: #425273;
+}
+.lv-exp-journal {
+  margin-top: 18px;
+  background: #1e263e;
+  border: 1px solid #414c6d;
+  border-radius: 16px;
+  padding: 21px;
+}
+.lv-exp-journal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.lv-exp-journal-head > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.lv-exp-journal-head svg {
+  color: #d6bff2;
+}
+.lv-exp-journal-head h4 {
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+.lv-exp-journal-head p {
+  font-size: 11px;
+  color: #9faac7;
+  margin: 0;
+}
+.lv-exp-journal-head > span {
+  color: #a4b5d0;
+  font-size: 11px;
+}
+.lv-exp-journal-entries {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 17px;
+}
+.lv-exp-journal-entries button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  padding: 12px;
+  background: #2a334c;
+  border: 1px solid #455271;
+  border-radius: 10px;
+  color: #edf0ff;
+  min-width: 0;
+}
+.lv-exp-journal-entries button:hover {
+  border-color: #b3a6e8;
+}
+.lv-exp-journal-entries button > span {
+  font-size: 25px;
+}
+.lv-exp-journal-entries button > div {
+  min-width: 0;
+  flex: 1;
+}
+.lv-exp-journal-entries strong {
+  display: block;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lv-exp-journal-entries small {
+  display: block;
+  margin-top: 3px;
+  color: #a0b1cb;
+  font-size: 9px;
+}
+.lv-exp-journal-entries svg {
+  color: #a9b9d8;
+  flex-shrink: 0;
+}
+.lv-exp-journal-empty {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  gap: 13px;
+  padding: 33px 14px;
+  color: #a9b8d1;
+}
+.lv-exp-journal-empty p {
+  max-width: 360px;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+.lv-exp-journal-empty svg {
+  color: #a5d5e5;
+}
+.lv-exp-trivia-start,
+.lv-exp-trivia-play,
+.lv-exp-trivia-end {
+  margin: 0 auto;
+  max-width: 740px;
+  border: 1px solid #4d5676;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at top, #313659, #1e2740 65%);
+  padding: clamp(22px, 4vw, 39px);
+  text-align: center;
+}
+.lv-exp-trivia-art {
+  height: 112px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.lv-exp-trivia-art > span {
+  border-radius: 25px;
+  width: 87px;
+  height: 87px;
+  background: linear-gradient(130deg, #7467a6, #425a8a);
+  color: #ffe3bc;
+  font-family: Georgia, serif;
+  font-size: 65px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 35px #a297f433;
+  border: 1px solid #b2aaf77b;
+  transform: rotate(-8deg);
+}
+.lv-exp-trivia-art > div {
+  position: absolute;
+  right: 32%;
+  top: 0;
+  color: #ffdba0;
+  font-size: 30px;
+}
+.lv-exp-trivia-start h4,
+.lv-exp-trivia-end h4 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  margin: 12px 0;
+}
+.lv-exp-trivia-start p,
+.lv-exp-trivia-end p {
+  font-size: 13px;
+  color: #b8c4d9;
+  line-height: 1.8;
+  max-width: 470px;
+  margin: 0 auto 25px;
+}
+.lv-exp-trivia-start label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  font-weight: 850;
+  color: #c4c8ed;
+  margin: 0 auto 11px;
+}
+.lv-exp-trivia-start select {
+  display: block;
+  margin: 0 auto 16px;
+  width: min(100%, 310px);
+  padding: 13px 15px;
+  font-size: 13px;
+  color: #f1f1ff;
+  border-radius: 11px;
+  border: 1px solid #657090;
+  background: #303c5b;
+}
+.lv-exp-trivia-start > .lv-exp-primary {
+  margin: 0 auto;
+}
+.lv-exp-trivia-start > small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #b5bfdd;
+  font-size: 10px;
+  margin-top: 18px;
+}
+.lv-exp-trivia-play {
+  text-align: left;
+}
+.lv-exp-trivia-progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #c4c9e0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+.lv-exp-trivia-track {
+  height: 7px;
+  background: #10192c;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0 35px;
+}
+.lv-exp-trivia-track > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #9baaff, #d4bbeb);
+  transition: width 0.2s;
+}
+.lv-exp-trivia-country {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 11px;
+  color: #abb7d7;
+}
+.lv-exp-trivia-country > span:first-child {
+  font-size: 34px;
+}
+.lv-exp-trivia-play h4 {
+  font-size: clamp(21px, 2.5vw, 29px);
+  line-height: 1.35;
+  margin: 14px 0 24px;
+}
+.lv-exp-answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+.lv-exp-answers button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: #2a3653;
+  border: 1px solid #4c5b7e;
+  border-radius: 13px;
+  padding: 15px;
+  color: #ecefff;
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 62px;
+}
+.lv-exp-answers button:not(:disabled):hover {
+  border-color: #ad9fe9;
+  background: #3e456b;
+}
+.lv-exp-answers button > span {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #48577a;
+  color: #cbdaf4;
+  font-size: 11px;
+  border-radius: 8px;
+}
+.lv-exp-answers button svg {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.lv-exp-answers button.correct {
+  background: #245951;
+  border-color: #70c3a3;
+  color: #d3ffee;
+}
+.lv-exp-answers button.incorrect {
+  background: #603b51;
+  border-color: #d68d9a;
+  color: #ffe1ea;
+}
+.lv-exp-answers button.muted {
+  opacity: 0.42;
+}
+.lv-exp-answers button:disabled {
+  cursor: default;
+}
+.lv-exp-trivia-feedback {
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 18px;
+  background: #443953;
+  border: 1px solid #8c698f;
+}
+.lv-exp-trivia-feedback.success {
+  background: #2a524d;
+  border-color: #5f9f8e;
+}
+.lv-exp-trivia-feedback strong {
+  font-size: 13px;
+}
+.lv-exp-trivia-feedback p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #d7ddf0;
+  margin: 6px 0 0;
+}
+.lv-exp-trivia-feedback small {
+  font-size: 10px;
+  display: block;
+  color: #abdecf;
+  margin-top: 6px;
+}
+.lv-exp-trivia-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 23px;
+}
+.lv-exp-trivia-footer > span {
+  color: #bed7d0;
+  font-size: 11px;
+}
+.lv-exp-trivia-end .lv-exp-finish-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #625477;
+  border: 1px solid #b69ac5;
+  color: #ffe3b0;
+  display: grid;
+  place-items: center;
+  margin: 8px auto 20px;
+  box-shadow: 0 0 35px #d9bdf01b;
+}
+.lv-exp-trivia-end > div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto 22px;
+}
+.lv-exp-trivia-end > div:nth-of-type(2) span {
+  display: grid;
+  gap: 7px;
+  min-width: 135px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #ffffff09;
+  border: 1px solid #ffffff17;
+}
+.lv-exp-trivia-end > div:nth-of-type(2) strong {
+  font-size: 22px;
+  color: #fff0d9;
+}
+.lv-exp-trivia-end > div:nth-of-type(2) small {
+  font-size: 10px;
+  color: #b8c7e2;
+}
+.lv-exp-trivia-end > .lv-exp-primary,
+.lv-exp-trivia-end > .lv-exp-hero-link {
+  margin: 0 auto;
+  display: flex;
+}
+.lv-exp-trivia-bottom {
+  margin: 18px auto 0;
+  max-width: 740px;
+  background: #202b44;
+  border: 1px solid #415574;
+  border-radius: 15px;
+  padding: 20px;
+}
+.lv-exp-trivia-bottom > div:first-child {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: #d2d9ef;
+  font-size: 13px;
+  font-weight: 850;
+}
+.lv-exp-trivia-bottom > strong {
+  float: right;
+  margin-top: -15px;
+  color: #b0d8ed;
+  font-size: 12px;
+}
+.lv-exp-trivia-bottom .lv-exp-expedition-track {
+  margin-top: 15px;
+}
+.lv-exp-trivia-bottom .lv-exp-expedition-track > span {
+  background: #adaceb;
+}
+.lv-exp-trivia-bottom p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #a4b2cb;
+  margin: 12px 0 0;
+}
+.lv-exp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 25px 0 3px;
+  color: #8e9bbb;
+  font-size: 10px;
+}
+.lv-exp-footer span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.lv-explore button:focus-visible,
+.lv-explore select:focus-visible,
+.lv-explore input:focus-visible {
+  outline: 2px solid #eccbff;
+  outline-offset: 3px;
+}
+@media (max-width: 1120px) {
+  .lv-exp-hero {
+    grid-template-columns: 1.4fr 0.65fr;
+  }
+  .lv-exp-atlas-layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(270px, 0.8fr);
+  }
+  .lv-exp-hero-art {
+    transform: scale(0.86);
+  }
+  .lv-exp-expedition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-exp-journal-entries {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  .lv-exp-hero {
+    grid-template-columns: 1fr;
+  }
+  .lv-exp-hero-art {
+    display: none;
+  }
+  .lv-exp-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-exp-atlas-layout {
+    grid-template-columns: 1fr;
+  }
+  .lv-exp-passport {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 25px;
+    align-content: start;
+  }
+  .lv-exp-passport-top,
+  .lv-exp-passport-rule,
+  .lv-exp-fieldnote,
+  .lv-exp-discover,
+  .lv-exp-passport-hint,
+  .lv-exp-passport-page {
+    grid-column: 1/-1;
+  }
+  .lv-exp-passport-flag {
+    grid-column: 1;
+    text-align: left;
+    font-size: 50px;
+  }
+  .lv-exp-passport h3 {
+    grid-column: 1;
+    text-align: left;
+    font-size: 25px;
+    margin-top: -3px;
+  }
+  .lv-exp-passport-region {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+  .lv-exp-passport-facts {
+    grid-column: 2;
+    grid-row: 2/5;
+    align-self: center;
+  }
+  .lv-exp-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 580px) {
+  .lv-explore {
+    padding: 16px 14px;
+  }
+  .lv-exp-hero-copy {
+    padding: 24px;
+  }
+  .lv-exp-hero h2 {
+    font-size: 34px;
+  }
+  .lv-exp-hero-actions {
+    align-items: stretch;
+  }
+  .lv-exp-stats {
+    gap: 8px;
+  }
+  .lv-exp-stat {
+    padding: 11px;
+    gap: 7px;
+  }
+  .lv-exp-stat > span {
+    width: 32px;
+    height: 32px;
+  }
+  .lv-exp-stat strong {
+    font-size: 20px;
+  }
+  .lv-exp-stat p {
+    font-size: 10px;
+  }
+  .lv-exp-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .lv-exp-atlas-controls {
+    display: block;
+  }
+  .lv-exp-search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .lv-exp-region-list {
+    width: 100%;
+  }
+  .lv-exp-map-top {
+    padding: 11px;
+  }
+  .lv-exp-map-top strong {
+    font-size: 12px;
+  }
+  .lv-exp-map-zoom > span {
+    display: none;
+  }
+  .lv-exp-map-canvas {
+    min-height: 130px;
+  }
+  .lv-exp-map-foot > span:last-child {
+    display: none;
+  }
+  .lv-exp-country-list {
+    grid-template-columns: 1fr;
+  }
+  .lv-exp-passport {
+    display: block;
+    padding: 19px;
+  }
+  .lv-exp-passport-flag {
+    text-align: center;
+    font-size: 65px;
+  }
+  .lv-exp-passport h3 {
+    text-align: center;
+  }
+  .lv-exp-passport-region {
+    justify-content: center;
+  }
+  .lv-exp-featured-grid,
+  .lv-exp-expedition-grid {
+    grid-template-columns: 1fr;
+  }
+  .lv-exp-expeditions-intro {
+    align-items: start;
+    flex-direction: column;
+  }
+  .lv-exp-expeditions-intro > strong small {
+    text-align: left;
+  }
+  .lv-exp-journal-entries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-exp-answers {
+    grid-template-columns: 1fr;
+  }
+  .lv-exp-trivia-play {
+    padding: 18px;
+  }
+  .lv-exp-trivia-play h4 {
+    font-size: 20px;
+  }
+  .lv-exp-trivia-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .lv-exp-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lv-exp-trivia-bottom > strong {
+    float: none;
+    display: block;
+    margin: 10px 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-explore *,
+  .lv-explore *::before,
+  .lv-explore *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

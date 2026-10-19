@@ -1,0 +1,357 @@
+.lv-planner {
+  color: #f2ebff;
+  max-width: 1100px;
+  margin: auto;
+  padding: 36px 35px 55px;
+}
+.lv-plan-intro h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 9px 0;
+}
+.lv-plan-intro p,
+.lv-plan-panel p,
+.lv-dream-summary p {
+  color: #ada8c7;
+}
+.lv-plan-eyebrow {
+  color: #c7a3ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.lv-plan-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #36314c;
+  margin: 27px 0;
+}
+.lv-plan-tabs button {
+  background: transparent;
+  border: 0;
+  color: #bbb5d0;
+  padding: 14px 19px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-weight: 700;
+}
+.lv-plan-tabs button.selected {
+  color: #e8d3ff;
+  border-bottom-color: #b78bff;
+}
+.lv-plan-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr);
+  gap: 18px;
+}
+.lv-plan-panel {
+  background: #24233b;
+  border: 1px solid #4b4265;
+  border-radius: 19px;
+  padding: 23px;
+  margin-bottom: 17px;
+  min-width: 0;
+}
+.lv-plan-panel h3,
+.lv-dream-summary h3 {
+  margin: 0 0 7px;
+  font-size: 19px;
+}
+.lv-plan-panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+.lv-plan-panel-head p,
+.lv-plan-subtitle {
+  font-size: 12px;
+  margin: 0 0 18px;
+}
+.lv-plan-segment {
+  display: flex;
+  background: #17182d;
+  border: 1px solid #48405e;
+  border-radius: 10px;
+  padding: 3px;
+  white-space: nowrap;
+}
+.lv-plan-segment button {
+  background: transparent;
+  color: #bdb5ce;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.lv-plan-segment button.selected {
+  background: #5d477e;
+  color: #fff;
+}
+.lv-plan-add {
+  display: flex;
+  gap: 9px;
+  align-items: end;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.lv-plan-add label,
+.lv-dream-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #b8b0cb;
+  font-size: 12px;
+  font-weight: 700;
+}
+.lv-plan-add .lv-plan-grow {
+  flex: 2 1 220px;
+}
+.lv-plan-add input,
+.lv-plan-add select,
+.lv-dream-form input,
+.lv-dream-form select,
+.lv-dream-form textarea,
+.lv-dream-card input,
+.lv-dream-card textarea {
+  background: #181a31;
+  border: 1px solid #4b4466;
+  border-radius: 9px;
+  color: #fff;
+  padding: 11px;
+  min-width: 0;
+  font: inherit;
+  max-width: 100%;
+}
+.lv-plan-add input[type='date'] {
+  color-scheme: dark;
+}
+.lv-plan-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 16px;
+  background: #8662bd;
+  border: 1px solid #ab86e2;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.lv-plan-task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid #39344e;
+}
+.lv-plan-task > button {
+  color: #bda2ec;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.lv-plan-task > div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.lv-plan-task strong,
+.lv-plan-deadline strong {
+  overflow-wrap: anywhere;
+}
+.lv-plan-task span {
+  font-size: 12px;
+  color: #a7a2ba;
+}
+.lv-plan-task.done strong {
+  text-decoration: line-through;
+  opacity: 0.58;
+}
+.lv-plan-priority {
+  font-style: normal;
+  text-transform: capitalize;
+}
+.lv-plan-priority.high,
+.lv-plan-deadline .overdue {
+  color: #ffab9c;
+}
+.lv-plan-priority.low {
+  color: #93d7bd;
+}
+.lv-plan-done {
+  margin-left: auto;
+}
+.lv-plan-empty {
+  padding: 16px;
+  color: #ada6c3;
+  font-size: 14px;
+}
+.lv-plan-deadline {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #39344e;
+  font-size: 13px;
+}
+.lv-plan-deadline span {
+  color: #c7b3ff;
+}
+.lv-plan-insight,
+.lv-plan-inspiration {
+  background: linear-gradient(140deg, #322a4c, #22283e);
+}
+.lv-plan-insight > span,
+.lv-plan-inspiration > span {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  color: #c9a8ff;
+}
+.lv-plan-insight h3,
+.lv-plan-inspiration h3 {
+  margin-top: 18px;
+}
+.lv-dream-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.lv-dream-summary > span {
+  color: #d0b5ff;
+  background: #322745;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.lv-dream-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+.lv-dream-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.lv-dream-form button {
+  justify-self: start;
+}
+.lv-dream-board {
+  background: linear-gradient(125deg, #45334a, #4c3a48);
+  border: 7px solid #655064;
+  border-radius: 16px;
+  min-height: 190px;
+  padding: 23px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+.lv-dream-card {
+  position: relative;
+  background: #eee1c9;
+  color: #33253b;
+  border-radius: 3px;
+  padding: 24px 17px 13px;
+  box-shadow: 3px 6px 13px #190f2070;
+  transform: rotate(calc((var(--card-index) - 1.5) * 1deg));
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.lv-dream-card:nth-child(4n + 2) {
+  background: #e4d7f6;
+}
+.lv-dream-card:nth-child(4n + 3) {
+  background: #d4e7e7;
+}
+.lv-dream-card:nth-child(4n + 4) {
+  background: #f2dacc;
+}
+.lv-dream-card.achieved {
+  opacity: 0.72;
+}
+.lv-dream-pin {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #966bb3;
+  box-shadow: 1px 2px 3px #33223a80;
+}
+.lv-dream-category {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  opacity: 0.6;
+}
+.lv-dream-card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.lv-dream-card p {
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+.lv-dream-linked {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #574368;
+  margin-top: 10px;
+}
+.lv-dream-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 18px;
+}
+.lv-dream-actions button {
+  font-size: 11px;
+  color: #42304f;
+  background: #ffffff70;
+  border: 1px solid #55466033;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+}
+.lv-dream-card input,
+.lv-dream-card textarea {
+  width: 100%;
+  margin: 4px 0;
+  color: #fff;
+}
+.lv-dream-card .lv-plan-primary {
+  font-size: 12px;
+}
+@media (max-width: 780px) {
+  .lv-planner {
+    padding: 24px 16px;
+  }
+  .lv-plan-columns {
+    grid-template-columns: 1fr;
+  }
+  .lv-plan-panel-head {
+    flex-wrap: wrap;
+  }
+  .lv-dream-form-row {
+    grid-template-columns: 1fr;
+  }
+  .lv-dream-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -12,20 +12,33 @@ export type AvatarSettings = {
 };
 
 export const defaultAvatar: AvatarSettings = {
-  mode: 'custom', hairstyle: 'messy', hair: '#24202e', skin: '#e8b58f',
-  outfit: 'hoodie', top: '#262638', pants: '#252938', shoes: '#f4f0ec',
+  mode: 'original',
+  hairstyle: 'messy',
+  hair: '#24202e',
+  skin: '#e8b58f',
+  outfit: 'hoodie',
+  top: '#262638',
+  pants: '#252938',
+  shoes: '#f4f0ec',
 };
 const KEY = 'lifeverse-avatar-v1';
 export function loadAvatar(): AvatarSettings {
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) return { ...defaultAvatar, ...JSON.parse(raw) };
-  } catch { /* default on invalid storage */ }
+  } catch {
+    /* default on invalid storage */
+  }
   return defaultAvatar;
 }
 export function useAvatar() {
   const [avatar, setAvatar] = useState<AvatarSettings>(loadAvatar);
-  useEffect(() => { try { localStorage.setItem(KEY, JSON.stringify(avatar)); } catch { /* private mode */ } }, [avatar]);
+  useEffect(() => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(avatar));
+    } catch {
+      /* private mode */
+    }
+  }, [avatar]);
   return [avatar, setAvatar] as const;
 }
-

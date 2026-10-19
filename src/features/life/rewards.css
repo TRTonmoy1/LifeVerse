@@ -1,0 +1,276 @@
+.lv-wardrobe {
+  margin: 26px 0 33px;
+  padding: 25px;
+  background:
+    radial-gradient(circle at 92% 2%, #60478b55, transparent 44%),
+    linear-gradient(145deg, #201d39, #192c39);
+  border: 1px solid #7664987c;
+  border-radius: 23px;
+  color: #f8f3ff;
+}
+.lv-wardrobe-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.lv-wardrobe-eyebrow {
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  color: #bfb0ff;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.lv-wardrobe-heading h3 {
+  font-size: 27px;
+  margin: 8px 0 7px;
+}
+.lv-wardrobe-heading p {
+  font-size: 12px;
+  color: #bfb9cf;
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0;
+}
+.lv-wardrobe-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-radius: 40px;
+  border: 1px solid #a499cd68;
+  background: #42375f68;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 750;
+}
+.lv-wardrobe-tabs {
+  display: flex;
+  gap: 9px;
+  margin: 24px 0 18px;
+}
+.lv-wardrobe-tabs button {
+  background: #272b42;
+  color: #d2c9e7;
+  border: 1px solid #5c567c;
+  border-radius: 12px;
+  padding: 11px 15px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.lv-wardrobe-tabs button.active {
+  background: #62528e;
+  color: white;
+  border-color: #b49af8;
+}
+.lv-wardrobe-tabs button:focus-visible,
+.lv-reward-card button:focus-visible {
+  outline: 2px solid #d6baff;
+  outline-offset: 3px;
+}
+.lv-reward-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.lv-reward-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid #535773;
+  background: #20243ac7;
+  border-radius: 15px;
+  padding: 15px;
+  min-width: 0;
+}
+.lv-reward-card.is-equipped {
+  border-color: #c0a9ef;
+  background: #392e59;
+}
+.lv-reward-card.is-locked {
+  opacity: 0.7;
+}
+.lv-reward-symbol {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 49px;
+  height: 49px;
+  border-radius: 14px;
+  color: #e8cfff;
+  background: radial-gradient(circle at 30% 20%, #8b64c0, #423366);
+}
+.lv-reward-symbol.lv-reward-verdant {
+  background: linear-gradient(135deg, #1f9b85, #193a48);
+}
+.lv-reward-symbol.lv-reward-ember {
+  background: linear-gradient(135deg, #d99153, #5e3555);
+}
+.lv-reward-symbol.lv-reward-starlit {
+  background: linear-gradient(135deg, #628ee5, #57318e);
+}
+.lv-reward-symbol.lv-reward-golden {
+  background: linear-gradient(135deg, #e5b35b, #8f5844);
+}
+.lv-reward-symbol.lv-reward-aurora-notes {
+  background: linear-gradient(135deg, #43b9b7, #5444a0);
+}
+.lv-reward-detail {
+  min-width: 0;
+  flex: 1;
+}
+.lv-reward-detail h4 {
+  font-size: 13px;
+  margin: 0 0 5px;
+}
+.lv-reward-detail p {
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0 0 6px;
+  color: #c7c0d5;
+}
+.lv-reward-detail small {
+  font-size: 10px;
+  color: #b5a6cf;
+}
+.lv-reward-card button {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #a78cdd;
+  border-radius: 10px;
+  padding: 9px 11px;
+  color: #fff;
+  background: #6d54a0;
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.lv-reward-card button:disabled {
+  cursor: default;
+  background: #323047;
+  border-color: #655c77;
+  color: #d1c7dd;
+}
+.lv-wardrobe-footnote {
+  font-size: 11px;
+  color: #a99cbe;
+  margin: 18px 0 0;
+  line-height: 1.5;
+}
+.lv-equipped-title {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border: 1px solid #dbbfef8c;
+  background: #66508159;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #f4dcff;
+  margin: 5px 0 14px;
+}
+.lv-profile-portrait.lv-aura-verdant {
+  background: radial-gradient(ellipse at 50% 78%, #2cbd9d88, #214d6170 46%, transparent 78%);
+  border-color: #66dfbd80;
+  box-shadow:
+    inset 0 -35px 65px #58ebc32c,
+    0 12px 38px #00cba138;
+}
+.lv-profile-portrait.lv-aura-ember {
+  background: radial-gradient(ellipse at 50% 78%, #e9a7659c, #58365455 48%, transparent 80%);
+  border-color: #e9ac7280;
+  box-shadow:
+    inset 0 -35px 65px #ffb77033,
+    0 12px 38px #fc8d3b28;
+}
+.lv-profile-portrait.lv-aura-starlit {
+  background: radial-gradient(ellipse at 50% 78%, #668fd6a8, #48367b6b 48%, transparent 80%);
+  border-color: #a0b7ff8c;
+  box-shadow:
+    inset 0 -35px 65px #6f8bff38,
+    0 12px 38px #697dff35;
+}
+.lv-profile-portrait.lv-aura-golden {
+  background: radial-gradient(ellipse at 50% 78%, #f6cf75b0, #75513f61 50%, transparent 80%);
+  border-color: #ffe09b9c;
+  box-shadow:
+    inset 0 -35px 65px #ffdf8638,
+    0 12px 38px #eab83d42;
+}
+.lv-profile-portrait.lv-aura-aurora-notes {
+  background: radial-gradient(ellipse at 50% 78%, #58d6d5a1, #4c3f8f72 48%, transparent 80%);
+  border-color: #86f0eb85;
+  box-shadow:
+    inset 0 -35px 65px #7ceee12a,
+    0 12px 38px #5dcde642;
+}
+@media (max-width: 780px) {
+  .lv-reward-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .lv-wardrobe {
+    padding: 16px;
+    margin: 18px 0;
+  }
+  .lv-wardrobe-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .lv-wardrobe-heading h3 {
+    font-size: 23px;
+  }
+  .lv-wardrobe-tabs button {
+    flex: 1;
+    padding: 10px 8px;
+  }
+  .lv-reward-card {
+    padding: 12px;
+    gap: 9px;
+  }
+  .lv-reward-symbol {
+    height: 42px;
+    width: 42px;
+  }
+  .lv-reward-card button {
+    padding: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-wardrobe * {
+    scroll-behavior: auto;
+  }
+}
+
+.lv-achievement-filters {
+  display: flex;
+  gap: 8px;
+  margin: 19px 0 17px;
+}
+.lv-achievement-filters button {
+  background: #28253e;
+  border: 1px solid #544b70;
+  color: #c9bddc;
+  padding: 8px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 750;
+}
+.lv-achievement-filters button.active {
+  background: #6b5196;
+  border-color: #ae92e2;
+  color: #fff;
+}
+.lv-achievement-filters button:focus-visible {
+  outline: 2px solid #d6baff;
+  outline-offset: 3px;
+}

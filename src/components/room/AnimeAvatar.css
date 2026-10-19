@@ -1,0 +1,24 @@
+/* All overlay images share one coordinate system. */
+.lv-detailed-avatar {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 551 / 1508;
+  flex: none;
+}
+.lv-detailed-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+.lv-studio-preview .lv-detailed-avatar {
+  width: min(100%, 130px);
+  max-height: 330px;
+}
+.lv-character-animated .lv-detailed-avatar {
+  width: 100%;
+}

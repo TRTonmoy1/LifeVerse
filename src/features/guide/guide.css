@@ -1,0 +1,563 @@
+.lv-guide {
+  display: grid;
+  gap: 20px;
+  color: #ece8ff;
+}
+.lv-guide h3,
+.lv-guide h4,
+.lv-guide p {
+  margin: 0;
+}
+
+/* Tabs */
+.lv-guide-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lv-guide-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 17px;
+  border-radius: 12px;
+  border: 1px solid #3f3a63;
+  background: #1b1a36;
+  color: #cdc4ea;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.lv-guide-tabs button:hover {
+  background: #26244a;
+}
+.lv-guide-tabs button.is-active {
+  background: #3b2f6b;
+  border-color: #a78bfa;
+  color: #fff;
+}
+.lv-guide-tabs button:focus-visible,
+.lv-guide-pin:focus-visible,
+.lv-guide-nav button:focus-visible,
+.lv-guide-cta button:focus-visible {
+  outline: 2px solid #dcc1ff;
+  outline-offset: 2px;
+}
+
+/* Start here */
+.lv-guide-intro {
+  margin-bottom: 18px;
+}
+.lv-guide-intro h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.lv-guide-intro p {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #cfc7e8;
+}
+.lv-guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.lv-guide-steps article,
+.lv-guide-datagrid article {
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #3f3a63;
+  background: #17162f;
+}
+.lv-guide-step-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #5f48a8, #3d2b73);
+  color: #f1e6ff;
+  margin-bottom: 14px;
+}
+.lv-guide-step-icon em {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffd98a;
+  color: #2a1f4d;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 800;
+}
+.lv-guide-steps h4,
+.lv-guide-datagrid h4 {
+  font-size: 16px;
+  font-weight: 750;
+  margin-bottom: 6px;
+}
+.lv-guide-steps p,
+.lv-guide-datagrid p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #c3bbdd;
+}
+.lv-guide-cta {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 6px;
+}
+.lv-guide-cta button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: 1px solid #c4a8ff;
+  background: linear-gradient(145deg, #7a5fd0, #523a9c);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 30px #5a3fb055;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.lv-guide-cta button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px #5a3fb080;
+}
+.lv-guide-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 8px;
+}
+.lv-guide-heading {
+  margin: 14px 0 8px !important;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a9a4c2;
+}
+.lv-guide-mini {
+  display: grid;
+  gap: 6px;
+}
+.lv-guide-mini > div {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  padding: 9px 13px;
+  border-radius: 12px;
+  border: 1px solid #34305a;
+  background: #15142b;
+}
+.lv-guide-mini svg {
+  flex-shrink: 0;
+  color: #c4a8ff;
+}
+.lv-guide-mini p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  align-items: baseline;
+}
+.lv-guide-mini b {
+  font-size: 13.5px;
+  color: #fff;
+}
+.lv-guide-mini span {
+  font-size: 13px;
+  color: #b8b0d4;
+}
+
+/* Room tour: map and details side by side so nothing needs scrolling */
+.lv-guide-tour {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+.lv-guide-tour-map {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.lv-guide-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #5e5382;
+  background: #0b0e1c;
+}
+.lv-guide-map img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+.lv-guide-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #a9a4c2;
+}
+.lv-guide-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: clamp(26px, 3.4vw, 36px);
+  height: clamp(26px, 3.4vw, 36px);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--pin-color);
+  color: #10101f;
+  font-weight: 800;
+  font-size: clamp(12px, 1.5vw, 15px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--pin-color) 35%, transparent),
+    0 4px 16px #0009;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.lv-guide-pin:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+.lv-guide-pin.is-selected {
+  transform: translate(-50%, -50%) scale(1.25);
+  box-shadow:
+    0 0 0 5px color-mix(in srgb, var(--pin-color) 45%, transparent),
+    0 0 22px var(--pin-color),
+    0 4px 16px #0009;
+  z-index: 2;
+}
+.lv-guide-detail {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--pin-color) 60%, #3f3a63);
+  background: #15142b;
+}
+.lv-guide-detail img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+.lv-guide-detail-body {
+  flex: 1;
+  padding: 16px 18px 12px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.lv-guide-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pin-color);
+}
+.lv-guide-detail-title h4 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #fff;
+}
+.lv-guide-detail small {
+  color: #a9a4c2;
+  font-size: 12.5px;
+}
+.lv-guide-detail-body > p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #e2dcf5;
+}
+.lv-guide-detail ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+  display: grid;
+  gap: 5px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #c9c1e2;
+}
+.lv-guide-detail li::marker {
+  color: var(--pin-color);
+}
+.lv-guide-detail .lv-guide-xp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--pin-color) 14%, #15142b);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.lv-guide-xp svg {
+  flex-shrink: 0;
+  color: var(--pin-color);
+}
+.lv-guide-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px 14px;
+  border-top: 1px solid #2a2750;
+}
+.lv-guide-nav span {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #a9a4c2;
+}
+.lv-guide-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid #5a4d86;
+  background: #2a2450;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.lv-guide-nav button:last-child {
+  background: linear-gradient(145deg, #6c53bd, #4a3590);
+  border-color: #b79bff;
+}
+.lv-guide-nav button:hover {
+  filter: brightness(1.15);
+}
+
+/* Earn XP */
+.lv-guide-levelbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  border: 1px solid #6b5aa0;
+  background: linear-gradient(135deg, #2a2150, #1a1836);
+}
+.lv-guide-levelbar svg {
+  flex-shrink: 0;
+  color: #ffd98a;
+}
+.lv-guide-levelbar p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d8d0f0;
+}
+.lv-guide-levelbar b {
+  color: #fff;
+}
+.lv-guide-xpgrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.lv-guide-xpgrid section {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 15px 16px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--pin-color) 45%, #34305a);
+  background: #15142b;
+}
+.lv-guide-xpgrid h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--pin-color);
+}
+.lv-guide-xpgrid section > div {
+  display: grid;
+  gap: 4px;
+}
+.lv-guide-xpgrid section p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #e2dcf5;
+}
+.lv-guide-xpgrid strong {
+  color: #ffd98a;
+  white-space: nowrap;
+}
+.lv-guide-xpgrid small {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #a9a4c2;
+}
+
+/* Save your data */
+.lv-guide-datagrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Top-bar Guide button: gentle accent so first-time visitors notice it. */
+.lv-guide-open {
+  background: linear-gradient(145deg, #5f48a8, #3d2b73);
+  border-color: #a78bfa;
+  color: #fff;
+}
+.lv-guide-open:hover:not(:disabled) {
+  background: linear-gradient(145deg, #7059bf, #4a3687);
+}
+
+/* Take a room tour: a separate button in the top bar with a slow, soft glow (no movement). */
+.lv-tour-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid #c9a8f5;
+  background: linear-gradient(135deg, #6f58c9, #a35fc0);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #b98cf000;
+  animation: lv-tour-glow 4s ease-in-out infinite;
+  transition: filter 0.2s;
+}
+.lv-tour-open:hover:not(:disabled) {
+  animation-play-state: paused;
+  filter: brightness(1.12);
+}
+.lv-tour-open:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.lv-tour-open:disabled {
+  opacity: 0.5;
+  animation: none;
+}
+@keyframes lv-tour-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #b98cf000;
+  }
+  50% {
+    box-shadow: 0 0 16px 2px #b98cf066;
+  }
+}
+
+/* Short laptop screens: drop the picture so the tour fits without scrolling. */
+@media (max-height: 800px) {
+  .lv-guide {
+    gap: 14px;
+  }
+  .lv-guide-detail img {
+    display: none;
+  }
+  .lv-guide-intro {
+    margin-bottom: 12px;
+  }
+  .lv-guide-cta {
+    margin: 14px 0 0;
+  }
+  .lv-guide-mini > div {
+    padding: 7px 13px;
+  }
+}
+@media (max-height: 800px) and (min-width: 901px) {
+  .lv-guide-steps article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+  }
+  .lv-guide-steps .lv-guide-step-icon {
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+  }
+  .lv-guide-steps h4 {
+    margin-bottom: 2px;
+  }
+}
+@media (max-width: 900px) {
+  .lv-guide-steps,
+  .lv-guide-datagrid,
+  .lv-guide-columns {
+    grid-template-columns: 1fr;
+  }
+  .lv-guide-xpgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-guide-tour {
+    grid-template-columns: 1fr;
+  }
+  .lv-guide-detail img {
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .lv-guide {
+    gap: 14px;
+  }
+  .lv-guide-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-guide-tabs button {
+    justify-content: center;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .lv-guide-xpgrid {
+    grid-template-columns: 1fr;
+  }
+  .lv-guide-steps article,
+  .lv-guide-datagrid article {
+    padding: 16px;
+  }
+  .lv-guide-caption {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-tour-open {
+    animation: none;
+  }
+  .lv-guide-pin,
+  .lv-guide-tabs button,
+  .lv-guide-cta button {
+    transition: none;
+  }
+}
